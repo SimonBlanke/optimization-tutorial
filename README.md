@@ -298,3 +298,292 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 ## Optimizer Parameters
 
 
+<details>
+<summary><b> epsilon</b></summary>
+
+<br>
+
+**Used by:**
+  - HillClimbingOptimizer
+  - RepulsingHillClimbingOptimizer
+  - SimulatedAnnealingOptimizer
+  - RandomRestartHillClimbingOptimizer
+  - RandomAnnealingOptimizer
+  - ParallelTemperingOptimizer
+  - ParticleSwarmOptimizer
+  - EvolutionStrategyOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> distribution</b></summary>
+
+<br>
+
+**Used by:**
+  - HillClimbingOptimizer
+  - RepulsingHillClimbingOptimizer
+  - SimulatedAnnealingOptimizer
+  - RandomRestartHillClimbingOptimizer
+  - RandomAnnealingOptimizer
+  - ParallelTemperingOptimizer
+  - ParticleSwarmOptimizer
+  - EvolutionStrategyOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> n_neighbours</b></summary>
+
+<br>
+
+**Used by:**
+  - HillClimbingOptimizer
+  - RepulsingHillClimbingOptimizer
+  - SimulatedAnnealingOptimizer
+  - RandomRestartHillClimbingOptimizer
+  - RandomAnnealingOptimizer
+  - ParallelTemperingOptimizer
+  - ParticleSwarmOptimizer
+  - EvolutionStrategyOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> rand_rest_p</b></summary>
+
+<br>
+
+**Used by:**
+  - HillClimbingOptimizer
+  - RepulsingHillClimbingOptimizer
+  - SimulatedAnnealingOptimizer
+  - RandomRestartHillClimbingOptimizer
+  - RandomAnnealingOptimizer
+  - ParallelTemperingOptimizer
+  - ParticleSwarmOptimizer
+  - EvolutionStrategyOptimizer
+  - BayesianOptimizer
+  - TreeStructuredParzenEstimators
+  - DecisionTreeOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> repulsion_factor</b></summary>
+
+<br>
+
+**Used by:**
+  - RepulsingHillClimbingOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> norm_factor</b></summary>
+
+<br>
+
+**Used by:**
+  - SimulatedAnnealingOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> annealing_rate</b></summary>
+
+<br>
+
+**Used by:**
+  - SimulatedAnnealingOptimizer
+  - RandomAnnealingOptimizer
+  - ParallelTemperingOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> start_temp</b></summary>
+
+<br>
+
+**Used by:**
+  - SimulatedAnnealingOptimizer
+  - RandomAnnealingOptimizer
+  - ParallelTemperingOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> n_iter_restart</b></summary>
+
+<br>
+
+**Used by:**
+  - RandomRestartHillClimbingOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> n_iter_swap</b></summary>
+
+<br>
+
+**Used by:**
+  - ParallelTemperingOptimizer
+
+
+
+</details>
+
+
+<details>
+<summary><b> inertia</b></summary>
+
+<br>
+
+**Used by:**
+  - ParticleSwarmOptimizer
+
+
+
+</details>
+
+
+<details>
+<summary><b> cognitive_weight</b></summary>
+
+<br>
+
+**Used by:**
+  - ParticleSwarmOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> social_weight</b></summary>
+
+<br>
+
+**Used by:**
+  - ParticleSwarmOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> temp_weight</b></summary>
+
+<br>
+
+**Used by:**
+  - ParticleSwarmOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> mutation_rate</b></summary>
+
+<br>
+
+**Used by:**
+  - EvolutionStrategyOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> crossover_rate</b></summary>
+
+<br>
+
+**Used by:**
+  - EvolutionStrategyOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> gpr</b></summary>
+
+<br>
+
+**Used by:**
+  - BayesianOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> xi</b></summary>
+
+<br>
+
+**Used by:**
+  - BayesianOptimizer
+  - DecisionTreeOptimizer
+
+</details>
+
+
+<details>
+<summary><b> warm_start_smbo</b></summary>
+
+<br>
+
+**Used by:**
+  - BayesianOptimizer
+  - TreeStructuredParzenEstimators
+  - DecisionTreeOptimizer
+
+
+</details>
+
+
+<details>
+<summary><b> gamma_tpe</b></summary>
+
+<br>
+
+**Used by:**
+  - TreeStructuredParzenEstimators
+
+
+</details>
+
+
+<details>
+<summary><b> tree_regressor</b></summary>
+
+<br>
+
+**Used by:**
+  - DecisionTreeOptimizer
+
+</details>
+
