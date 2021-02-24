@@ -10,8 +10,9 @@ This tutorial describes the optimization strategies and paramters from the Hyper
 
 <div align="center"><a name="menu"></a>
   <h3>
-    <a href="https://github.com/SimonBlanke/Hyperactive#main-features">Main features</a> •
-    <a href="https://github.com/SimonBlanke/Hyperactive#license">License</a>
+    <a href="https://github.com/SimonBlanke/Hyperactive#overview">Overview</a> •
+    <a href="https://github.com/SimonBlanke/Hyperactive#optimizer-classes-and-default-parameters">Optimizers</a> •
+    <a href="https://github.com/SimonBlanke/Hyperactive#optimizer-parameters">Parameters</a>
   </h3>
 </div>
 
