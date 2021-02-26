@@ -111,8 +111,6 @@ It simulates a temperature that decreases with each iteration, similar to a mate
   - distribution="normal"
   - n_neighbours=3
   - rand_rest_p=0.03
-  - p_accept=0.1
-  - norm_factor=1
   - annealing_rate=0.975
   - start_temp=1
 
@@ -212,7 +210,6 @@ Particle swarm optimization works by initializing a number of positions at the s
   - inertia=0.5
   - cognitive_weight=0.5
   - social_weight=0.5
-  - temp_weight=0.2
   - rand_rest_p=0.03
   - 
 **Use case/properties:**
@@ -284,10 +281,12 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <details>
 <summary><b> DecisionTreeOptimizer</b></summary>
 
-    - tree_regressor="extra_tree"
-    - xi=0.01
-    - warm_start_smbo=None
-    - rand_rest_p=0.03
+
+**Available parameters:**
+  - tree_regressor="extra_tree"
+  - xi=0.01
+  - warm_start_smbo=None
+  - rand_rest_p=0.03
 
 </details>
 
@@ -302,6 +301,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> epsilon</b></summary>
 
 <br>
+
+When climbing to new positions epsilon determines how far the hill climbing based algorithm jumps from one position to the next points. Higher epsilon leads to longer jumps.
+
+**available values:** float
 
 **Used by:**
   - HillClimbingOptimizer
@@ -322,6 +325,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+The mathematical distribution the algorithm draws samples from. 
+
+**available values:** str; "normal", "laplace", "logistic", "gumbel"
+
 **Used by:**
   - HillClimbingOptimizer
   - RepulsingHillClimbingOptimizer
@@ -341,6 +348,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+The number of positions the algorithm explores from its current postion before jumping to the best one.
+
+**available values:** int
+
 **Used by:**
   - HillClimbingOptimizer
   - RepulsingHillClimbingOptimizer
@@ -359,6 +370,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> rand_rest_p</b></summary>
 
 <br>
+
+Probability for the optimization algorithm to jump to a random position in an iteration step.
+
+**available values:** float; [0.0, ... ,0.5, ... ,1]
 
 **Used by:**
   - HillClimbingOptimizer
@@ -382,6 +397,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+If the algorithm does not find a better position the repulsion factor increases epsilon for the next jump.
+
+**available values:** float
+
 **Used by:**
   - RepulsingHillClimbingOptimizer
 
@@ -389,22 +408,15 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 </details>
 
 
-<details>
-<summary><b> norm_factor</b></summary>
-
-<br>
-
-**Used by:**
-  - SimulatedAnnealingOptimizer
-
-
-</details>
-
 
 <details>
 <summary><b> annealing_rate</b></summary>
 
 <br>
+
+Rate at which the temperatur-value of the algorithm decreases. An annealing rate above 1 increases the temperature over time.
+
+**available values:** float; [0.0, ... ,0.5, ... ,1]
 
 **Used by:**
   - SimulatedAnnealingOptimizer
@@ -420,6 +432,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+The start temperatur determines the probability for the algorithm to jump to a worse position.
+
+**available values:** float
+
 **Used by:**
   - SimulatedAnnealingOptimizer
   - RandomAnnealingOptimizer
@@ -434,6 +450,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+The number of iterations the algorithm performs before jumping to a random position.
+
+**available values:** int
+
 **Used by:**
   - RandomRestartHillClimbingOptimizer
 
@@ -446,9 +466,12 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+The number of iterations the algorithm performs before switching temperatures of the individual optimizers in the population.
+
+**available values:** int
+
 **Used by:**
   - ParallelTemperingOptimizer
-
 
 
 </details>
@@ -458,6 +481,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> inertia</b></summary>
 
 <br>
+
+The inertia of the movement of the individual optimizers in the population.
+
+**available values:** float
 
 **Used by:**
   - ParticleSwarmOptimizer
@@ -472,6 +499,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+A factor of the movement towards the personal best position of the individual optimizers in the population.
+
+**available values:** float
+
 **Used by:**
   - ParticleSwarmOptimizer
 
@@ -484,17 +515,9 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
-**Used by:**
-  - ParticleSwarmOptimizer
+A factor of the movement towards the global best position of the individual optimizers in the population.
 
-
-</details>
-
-
-<details>
-<summary><b> temp_weight</b></summary>
-
-<br>
+**available values:** float
 
 **Used by:**
   - ParticleSwarmOptimizer
@@ -508,6 +531,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+Probability of an individual in the population to perform an hill climbing step.
+
+**available values:** float
+
 **Used by:**
   - EvolutionStrategyOptimizer
 
@@ -519,6 +546,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> crossover_rate</b></summary>
 
 <br>
+
+Probability of an individual to perform a crossover with the best individual in the population.
+
+**available values:** float
 
 **Used by:**
   - EvolutionStrategyOptimizer
@@ -532,6 +563,11 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+The access to the surrogate model class. Example surrogate model classes can be found in a separate
+[repository](https://github.com/SimonBlanke/surrogate-models).
+
+**available values:** class
+
 **Used by:**
   - BayesianOptimizer
 
@@ -544,6 +580,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+Parameter for the expected uncertainty of the estimation.
+
+**available values:** float
+
 **Used by:**
   - BayesianOptimizer
   - DecisionTreeOptimizer
@@ -555,6 +595,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> warm_start_smbo</b></summary>
 
 <br>
+
+Dataframe that contains the search data of a previous optimization run.
+
+**available values:** dataframe
 
 **Used by:**
   - BayesianOptimizer
@@ -570,6 +614,10 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 
 <br>
 
+Separates the explored positions into good and bad.
+
+**available values:** float; [0.0, ... ,0.5, ... ,1]
+
 **Used by:**
   - TreeStructuredParzenEstimators
 
@@ -581,6 +629,11 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> tree_regressor</b></summary>
 
 <br>
+
+The access to the surrogate model class. Example surrogate model classes can be found in a separate
+[repository](https://github.com/SimonBlanke/surrogate-models).
+
+**available values:** class
 
 **Used by:**
   - DecisionTreeOptimizer
