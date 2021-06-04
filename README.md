@@ -319,8 +319,8 @@ When climbing to new positions epsilon determines how far the hill climbing base
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -342,8 +342,8 @@ The mathematical distribution the algorithm draws samples from.
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -365,8 +365,8 @@ The number of positions the algorithm explores from its current postion before j
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -391,8 +391,8 @@ Probability for the optimization algorithm to jump to a random position in an it
   - TreeStructuredParzenEstimators
   - DecisionTreeOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -406,7 +406,6 @@ If the algorithm does not find a better position the repulsion factor increases 
 
 **Used by:**
   - RepulsingHillClimbingOptimizer
-
 
 </details>
 
@@ -426,8 +425,8 @@ Rate at which the temperatur-value of the algorithm decreases. An annealing rate
   - RandomAnnealingOptimizer
   - ParallelTemperingOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -444,8 +443,8 @@ The start temperatur determines the probability for the algorithm to jump to a w
   - RandomAnnealingOptimizer
   - ParallelTemperingOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -460,8 +459,8 @@ The number of iterations the algorithm performs before jumping to a random posit
 **Used by:**
   - RandomRestartHillClimbingOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -476,8 +475,26 @@ The number of iterations the algorithm performs before switching temperatures of
 **Used by:**
   - ParallelTemperingOptimizer
 
+</details>
+
+
+
+<details>
+<summary><b> population</b></summary>
+
+<br>
+
+Size of the population for population-based optimization algorithms.
+
+**available values:** float
+
+**Used by:**
+  - ParallelTemperingOptimizer
+  - ParticleSwarmOptimizer
+  - EvolutionStrategyOptimizer
 
 </details>
+
 
 
 <details>
@@ -492,9 +509,8 @@ The inertia of the movement of the individual optimizers in the population.
 **Used by:**
   - ParticleSwarmOptimizer
 
-
-
 </details>
+
 
 
 <details>
@@ -509,8 +525,8 @@ A factor of the movement towards the personal best position of the individual op
 **Used by:**
   - ParticleSwarmOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -525,8 +541,8 @@ A factor of the movement towards the global best position of the individual opti
 **Used by:**
   - ParticleSwarmOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -541,8 +557,8 @@ Probability of an individual in the population to perform an hill climbing step.
 **Used by:**
   - EvolutionStrategyOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -557,8 +573,8 @@ Probability of an individual to perform a crossover with the best individual in 
 **Used by:**
   - EvolutionStrategyOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -574,8 +590,8 @@ The access to the surrogate model class. Example surrogate model classes can be 
 **Used by:**
   - BayesianOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -594,6 +610,7 @@ Parameter for the expected uncertainty of the estimation.
 </details>
 
 
+
 <details>
 <summary><b> warm_start_smbo</b></summary>
 
@@ -608,8 +625,8 @@ Dataframe that contains the search data of a previous optimization run.
   - TreeStructuredParzenEstimators
   - DecisionTreeOptimizer
 
-
 </details>
+
 
 
 <details>
@@ -624,8 +641,8 @@ Separates the explored positions into good and bad.
 **Used by:**
   - TreeStructuredParzenEstimators
 
-
 </details>
+
 
 
 <details>
