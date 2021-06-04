@@ -189,6 +189,7 @@ Parallel Tempering initializes multiple simulated annealing searches with differ
 
 
 **Available parameters:**
+  - population=10
   - n_iter_swap=10
   - rand_rest_p=0.03
 
@@ -207,11 +208,12 @@ Parallel Tempering initializes multiple simulated annealing searches with differ
 Particle swarm optimization works by initializing a number of positions at the same time and moving all of those closer to the best one after each iteration.
 
 **Available parameters:**
+  - population=10
   - inertia=0.5
   - cognitive_weight=0.5
   - social_weight=0.5
   - rand_rest_p=0.03
-  - 
+
 **Use case/properties:**
   - If the search space is complex and large
   - If you have enough time for many model evaluations
@@ -227,6 +229,7 @@ Particle swarm optimization works by initializing a number of positions at the s
 Evolution strategy mutates and combines the best individuals of a population across a number of generations without transforming them into an array of bits (like genetic algorithms) but uses the real values of the positions.
 
 **Available parameters:**
+  - population=10
   - mutation_rate=0.7
   - crossover_rate=0.3
   - rand_rest_p=0.03
