@@ -46,6 +46,9 @@ Those recomendations are just estimated based on personal experience and can hea
   
 <br>
   
+---
+  
+  
 Hill climbing is a very basic optimization technique, that explores the search space only localy. It starts at an initial point, which is often chosen randomly and continues to move to positions with a better solution. It has no method against getting stuck in local optima.
 
 **Available parameters:**
@@ -59,7 +62,7 @@ Hill climbing is a very basic optimization technique, that explores the search s
   - When you have a very good initial point to start from
   - If the search space is very simple and has few local optima or saddle points
 
-
+---
 
 </details>
 
@@ -69,6 +72,7 @@ Hill climbing is a very basic optimization technique, that explores the search s
   
 <br>
   
+---
   
 **Available parameters:**
   - epsilon=0.05
@@ -80,7 +84,8 @@ Hill climbing is a very basic optimization technique, that explores the search s
 **Use case/properties:**
   - When you have a good initial point to start from
 
-
+---
+  
 </details>
 
 
@@ -89,6 +94,8 @@ Hill climbing is a very basic optimization technique, that explores the search s
 
 <br>
 
+---
+  
 Simulated annealing chooses its next possible position similar to hill climbing, but it accepts worse results with a probability that decreases with time:
 
 <p align="center">
@@ -118,7 +125,8 @@ It simulates a temperature that decreases with each iteration, similar to a mate
 - When you have a good initial point to start from, but expect the surrounding search space to be very complex
 - Good as a second method of optimization
 
-
+---
+  
 </details>
 
 
@@ -127,12 +135,16 @@ It simulates a temperature that decreases with each iteration, similar to a mate
 
 <br>
 
+---
+  
 The random search explores by choosing a new position at random after each iteration. Some random search implementations choose a new position within a large hypersphere around the current position. The implementation in hyperactive is purely random across the search space in each step.
 
 **Use case/properties:**
   - Very good as a first method of optimization or to start exploring the search space
   - For a short optimization run to get an acceptable solution
 
+---
+  
 </details>
 
 
@@ -141,6 +153,8 @@ The random search explores by choosing a new position at random after each itera
 
 <br>
 
+---
+  
 Random restart hill climbing works by starting a hill climbing search and jumping to a random new position after a number of iterations.
 
 **Available parameters:**
@@ -154,6 +168,8 @@ Random restart hill climbing works by starting a hill climbing search and jumpin
   - Good as a first method of optimization
   - For a short optimization run to get an acceptable solution
 
+---
+  
 </details>
 
 
@@ -162,6 +178,8 @@ Random restart hill climbing works by starting a hill climbing search and jumpin
   
 <br>
 
+---
+  
 An algorithm that chooses a new position within a large hypersphere around the current position. This hypersphere gets smaller over time.
 
 **Available parameters:**
@@ -177,6 +195,8 @@ An algorithm that chooses a new position within a large hypersphere around the c
   - Good as a first method of optimization
   - For a short optimization run to get an acceptable solution
 
+---
+  
 </details>
 
 
@@ -185,6 +205,8 @@ An algorithm that chooses a new position within a large hypersphere around the c
 
 <br>
 
+---
+  
 Parallel Tempering initializes multiple simulated annealing searches with different temperatures and chooses to swap those temperatures with the following probability:
 
 
@@ -197,6 +219,8 @@ Parallel Tempering initializes multiple simulated annealing searches with differ
   - Not as dependend of a good initial position as simulated annealing
   - If you have enough time for many model evaluations
 
+---
+  
 </details>
 
 
@@ -205,6 +229,8 @@ Parallel Tempering initializes multiple simulated annealing searches with differ
 
 <br>
 
+---
+  
 Particle swarm optimization works by initializing a number of positions at the same time and moving all of those closer to the best one after each iteration.
 
 **Available parameters:**
@@ -218,6 +244,8 @@ Particle swarm optimization works by initializing a number of positions at the s
   - If the search space is complex and large
   - If you have enough time for many model evaluations
 
+---
+  
 </details>
 
 
@@ -226,6 +254,8 @@ Particle swarm optimization works by initializing a number of positions at the s
 
 <br>
 
+---
+  
 Evolution strategy mutates and combines the best individuals of a population across a number of generations without transforming them into an array of bits (like genetic algorithms) but uses the real values of the positions.
 
 **Available parameters:**
@@ -238,6 +268,8 @@ Evolution strategy mutates and combines the best individuals of a population acr
   - If the search space is very complex and large
   - If you have enough time for many model evaluations
 
+---
+  
 </details>
 
 
@@ -246,6 +278,8 @@ Evolution strategy mutates and combines the best individuals of a population acr
 
 <br>
 
+---
+  
 Bayesian optimization chooses new positions by calculating the expected improvement of every position in the search space based on a gaussian process that trains on already evaluated positions.
 
 **Available parameters:**
@@ -259,13 +293,18 @@ Bayesian optimization chooses new positions by calculating the expected improvem
   - If you do not want to do many iterations
   - If your search space is not to big
 
+---
+  
 </details>
+
 
 <details>
 <summary><b> TreeStructuredParzenEstimators</b></summary>
 
 <br>
 
+---
+  
 Tree of Parzen Estimators also chooses new positions by calculating the expected improvement. It does so by calculating the ratio of probability being among the best positions and the worst positions. Those probabilities are determined with a kernel density estimator, that is trained on alrady evaluated positions.
 
 **Available parameters:**
@@ -278,19 +317,26 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
   - If you do not want to do many iterations
   - If your search space is not to big
 
+---
+  
 </details>
 
 
 <details>
 <summary><b> DecisionTreeOptimizer</b></summary>
 
+<br>
 
+---
+  
 **Available parameters:**
   - tree_regressor="extra_tree"
   - xi=0.01
   - warm_start_smbo=None
   - rand_rest_p=0.03
 
+---
+  
 </details>
 
 
@@ -304,6 +350,8 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 <summary><b> epsilon</b></summary>
 
 <br>
+
+---
 
 When climbing to new positions epsilon determines how far the hill climbing based algorithm jumps from one position to the next points. Higher epsilon leads to longer jumps.
 
@@ -319,6 +367,8 @@ When climbing to new positions epsilon determines how far the hill climbing base
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
+---
+  
 </details>
 
 
@@ -328,6 +378,8 @@ When climbing to new positions epsilon determines how far the hill climbing base
 
 <br>
 
+---
+  
 The mathematical distribution the algorithm draws samples from. 
 
 **available values:** str; "normal", "laplace", "logistic", "gumbel"
@@ -342,6 +394,8 @@ The mathematical distribution the algorithm draws samples from.
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
+---
+  
 </details>
 
 
@@ -351,6 +405,8 @@ The mathematical distribution the algorithm draws samples from.
 
 <br>
 
+---
+  
 The number of positions the algorithm explores from its current postion before jumping to the best one.
 
 **available values:** int
@@ -365,6 +421,8 @@ The number of positions the algorithm explores from its current postion before j
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
+---
+  
 </details>
 
 
@@ -374,6 +432,8 @@ The number of positions the algorithm explores from its current postion before j
 
 <br>
 
+---
+  
 Probability for the optimization algorithm to jump to a random position in an iteration step.
 
 **available values:** float; [0.0, ... ,0.5, ... ,1]
@@ -391,6 +451,8 @@ Probability for the optimization algorithm to jump to a random position in an it
   - TreeStructuredParzenEstimators
   - DecisionTreeOptimizer
 
+---
+  
 </details>
 
 
@@ -400,6 +462,8 @@ Probability for the optimization algorithm to jump to a random position in an it
 
 <br>
 
+---
+  
 If the algorithm does not find a better position the repulsion factor increases epsilon for the next jump.
 
 **available values:** float
@@ -407,6 +471,8 @@ If the algorithm does not find a better position the repulsion factor increases 
 **Used by:**
   - RepulsingHillClimbingOptimizer
 
+---
+  
 </details>
 
 
@@ -416,6 +482,8 @@ If the algorithm does not find a better position the repulsion factor increases 
 
 <br>
 
+---
+  
 Rate at which the temperatur-value of the algorithm decreases. An annealing rate above 1 increases the temperature over time.
 
 **available values:** float; [0.0, ... ,0.5, ... ,1]
@@ -425,6 +493,8 @@ Rate at which the temperatur-value of the algorithm decreases. An annealing rate
   - RandomAnnealingOptimizer
   - ParallelTemperingOptimizer
 
+---
+  
 </details>
 
 
@@ -434,6 +504,8 @@ Rate at which the temperatur-value of the algorithm decreases. An annealing rate
 
 <br>
 
+---
+  
 The start temperatur determines the probability for the algorithm to jump to a worse position.
 
 **available values:** float
@@ -443,6 +515,8 @@ The start temperatur determines the probability for the algorithm to jump to a w
   - RandomAnnealingOptimizer
   - ParallelTemperingOptimizer
 
+---
+  
 </details>
 
 
@@ -452,6 +526,8 @@ The start temperatur determines the probability for the algorithm to jump to a w
 
 <br>
 
+---
+  
 The number of iterations the algorithm performs before jumping to a random position.
 
 **available values:** int
@@ -459,6 +535,8 @@ The number of iterations the algorithm performs before jumping to a random posit
 **Used by:**
   - RandomRestartHillClimbingOptimizer
 
+---
+  
 </details>
 
 
@@ -468,6 +546,8 @@ The number of iterations the algorithm performs before jumping to a random posit
 
 <br>
 
+---
+  
 The number of iterations the algorithm performs before switching temperatures of the individual optimizers in the population.
 
 **available values:** int
@@ -475,6 +555,8 @@ The number of iterations the algorithm performs before switching temperatures of
 **Used by:**
   - ParallelTemperingOptimizer
 
+---
+  
 </details>
 
 
@@ -483,6 +565,8 @@ The number of iterations the algorithm performs before switching temperatures of
 <summary><b> population</b></summary>
 
 <br>
+  
+---
 
 Size of the population for population-based optimization algorithms.
 
@@ -493,6 +577,8 @@ Size of the population for population-based optimization algorithms.
   - ParticleSwarmOptimizer
   - EvolutionStrategyOptimizer
 
+---
+  
 </details>
 
 
@@ -502,6 +588,8 @@ Size of the population for population-based optimization algorithms.
 
 <br>
 
+---
+  
 The inertia of the movement of the individual optimizers in the population.
 
 **available values:** float
@@ -509,6 +597,8 @@ The inertia of the movement of the individual optimizers in the population.
 **Used by:**
   - ParticleSwarmOptimizer
 
+---
+  
 </details>
 
 
@@ -518,6 +608,8 @@ The inertia of the movement of the individual optimizers in the population.
 
 <br>
 
+---
+  
 A factor of the movement towards the personal best position of the individual optimizers in the population.
 
 **available values:** float
@@ -525,6 +617,8 @@ A factor of the movement towards the personal best position of the individual op
 **Used by:**
   - ParticleSwarmOptimizer
 
+---
+  
 </details>
 
 
@@ -534,6 +628,8 @@ A factor of the movement towards the personal best position of the individual op
 
 <br>
 
+---
+  
 A factor of the movement towards the global best position of the individual optimizers in the population.
 
 **available values:** float
@@ -541,6 +637,8 @@ A factor of the movement towards the global best position of the individual opti
 **Used by:**
   - ParticleSwarmOptimizer
 
+---
+  
 </details>
 
 
@@ -550,6 +648,8 @@ A factor of the movement towards the global best position of the individual opti
 
 <br>
 
+---
+  
 Probability of an individual in the population to perform an hill climbing step.
 
 **available values:** float
@@ -557,6 +657,8 @@ Probability of an individual in the population to perform an hill climbing step.
 **Used by:**
   - EvolutionStrategyOptimizer
 
+---
+  
 </details>
 
 
@@ -566,6 +668,8 @@ Probability of an individual in the population to perform an hill climbing step.
 
 <br>
 
+---
+  
 Probability of an individual to perform a crossover with the best individual in the population.
 
 **available values:** float
@@ -573,6 +677,8 @@ Probability of an individual to perform a crossover with the best individual in 
 **Used by:**
   - EvolutionStrategyOptimizer
 
+---
+  
 </details>
 
 
@@ -582,6 +688,8 @@ Probability of an individual to perform a crossover with the best individual in 
 
 <br>
 
+---
+  
 The access to the surrogate model class. Example surrogate model classes can be found in a separate
 [repository](https://github.com/SimonBlanke/surrogate-models).
 
@@ -590,6 +698,8 @@ The access to the surrogate model class. Example surrogate model classes can be 
 **Used by:**
   - BayesianOptimizer
 
+---
+  
 </details>
 
 
@@ -599,6 +709,8 @@ The access to the surrogate model class. Example surrogate model classes can be 
 
 <br>
 
+---
+  
 Parameter for the expected uncertainty of the estimation.
 
 **available values:** float
@@ -607,6 +719,8 @@ Parameter for the expected uncertainty of the estimation.
   - BayesianOptimizer
   - DecisionTreeOptimizer
 
+---
+  
 </details>
 
 
@@ -616,6 +730,8 @@ Parameter for the expected uncertainty of the estimation.
 
 <br>
 
+---
+  
 Dataframe that contains the search data of a previous optimization run.
 
 **available values:** dataframe
@@ -625,6 +741,8 @@ Dataframe that contains the search data of a previous optimization run.
   - TreeStructuredParzenEstimators
   - DecisionTreeOptimizer
 
+---
+  
 </details>
 
 
@@ -634,6 +752,8 @@ Dataframe that contains the search data of a previous optimization run.
 
 <br>
 
+---
+  
 Separates the explored positions into good and bad.
 
 **available values:** float; [0.0, ... ,0.5, ... ,1]
@@ -641,6 +761,8 @@ Separates the explored positions into good and bad.
 **Used by:**
   - TreeStructuredParzenEstimators
 
+---
+  
 </details>
 
 
@@ -650,6 +772,8 @@ Separates the explored positions into good and bad.
 
 <br>
 
+---
+  
 The access to the surrogate model class. Example surrogate model classes can be found in a separate
 [repository](https://github.com/SimonBlanke/surrogate-models).
 
@@ -658,5 +782,7 @@ The access to the surrogate model class. Example surrogate model classes can be 
 **Used by:**
   - DecisionTreeOptimizer
 
+---
+  
 </details>
 
