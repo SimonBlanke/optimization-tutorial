@@ -2,7 +2,9 @@
   Optimization Tutorial
 </h1>
 
-This tutorial describes the optimization strategies and paramters from the Hyperactive and Gradient-Free-Optimization python-packages. 
+<br>
+
+This tutorial describes the optimization strategies and parameters from the [Hyperactive](https://github.com/SimonBlanke/Hyperactive) and [Gradient-Free-Optimizers](https://github.com/SimonBlanke/Gradient-Free-Optimizers) python-packages. All optimizer- and parameter-names correspond to **version 0.X.X** of Gradient-Free-Optimizers.
 
 <br>
 
