@@ -4,7 +4,7 @@
 
 <br>
 
-This tutorial describes the optimization strategies and parameters from the [Hyperactive](https://github.com/SimonBlanke/Hyperactive) and [Gradient-Free-Optimizers](https://github.com/SimonBlanke/Gradient-Free-Optimizers) python-packages. All optimizer- and parameter-names correspond to **version 0.X.X** of Gradient-Free-Optimizers.
+This tutorial describes the optimization strategies and parameters from the [Hyperactive](https://github.com/SimonBlanke/Hyperactive) and [Gradient-Free-Optimizers](https://github.com/SimonBlanke/Gradient-Free-Optimizers) python-packages. All optimizer- and parameter-names correspond to **version 0.5** of Gradient-Free-Optimizers.
 
 <br>
 
@@ -148,6 +148,28 @@ The random search explores by choosing a new position at random after each itera
 ---
   
 </details>
+
+
+<details>
+<summary><b> GridSearchOptimizer</b></summary>
+
+<br>
+
+---
+  
+The grid-search explores the search space one step at a time following a diagonal grid like structure. It does not take the score from the objective function into account, but follows the grid until the entire search space is explored.
+
+**Available parameters:**
+  - step_size=1
+  
+**Use case/properties:**
+  - Very good as a first method of optimization or to start exploring the search space
+
+---
+  
+</details>
+
+
 
 
 <details>
@@ -520,6 +542,27 @@ The start temperatur determines the probability for the algorithm to jump to a w
 ---
   
 </details>
+
+
+
+<details>
+<summary><b> step_size</b></summary>
+
+<br>
+
+---
+  
+The number of steps the grid search takes after each iteration. If this parameter is set to 3 the grid search won't select the next position, but the one it would normally select after 3 iterations. This way we get a sparse grid after the first pass through the search space. After the first pass is done the grid search starts at the beginning and does a second pass with the same step size. And a third pass after that.
+
+**available values:** int
+
+**Used by:**
+  - GridSearchOptimizer
+
+---
+  
+</details>
+
 
 
 
