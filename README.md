@@ -57,7 +57,7 @@ Hill climbing is a very basic optimization technique, that explores the search s
   - epsilon=0.05
   - distribution="normal"
   - n_neighbours=3
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 **Use case/properties:**
   - Never as a first method of optimization
@@ -80,7 +80,7 @@ Hill climbing is a very basic optimization technique, that explores the search s
   - epsilon=0.05
   - distribution="normal"
   - n_neighbours=3
-  - rand_rest_p=0.03
+  - rand_rest_p=0
   - repulsion_factor=3
 
 **Use case/properties:**
@@ -119,7 +119,7 @@ It simulates a temperature that decreases with each iteration, similar to a mate
   - epsilon=0.05
   - distribution="normal"
   - n_neighbours=3
-  - rand_rest_p=0.03
+  - rand_rest_p=0
   - annealing_rate=0.975
   - start_temp=1
 
@@ -185,7 +185,7 @@ Random restart hill climbing works by starting a hill climbing search and jumpin
   - epsilon=0.05
   - distribution="normal"
   - n_neighbours=3
-  - rand_rest_p=0.03
+  - rand_rest_p=0
   - n_iter_restart=10
 
 **Use case/properties:**
@@ -237,7 +237,7 @@ Parallel Tempering initializes multiple simulated annealing searches with differ
 **Available parameters:**
   - population=10
   - n_iter_swap=10
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 **Use case/properties:**
   - Not as dependend of a good initial position as simulated annealing
@@ -262,7 +262,7 @@ Particle swarm optimization works by initializing a number of positions at the s
   - inertia=0.5
   - cognitive_weight=0.5
   - social_weight=0.5
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 **Use case/properties:**
   - If the search space is complex and large
@@ -286,7 +286,7 @@ Evolution strategy mutates and combines the best individuals of a population acr
   - population=10
   - mutation_rate=0.7
   - crossover_rate=0.3
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 **Use case/properties:**
   - If the search space is very complex and large
@@ -310,7 +310,7 @@ Bayesian optimization chooses new positions by calculating the expected improvem
   - gpr=gaussian_process["gp_nonlinear"]
   - xi=0.03
   - warm_start_smbo=None
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 **Use case/properties:**
   - If model evaluations take a long time
@@ -334,7 +334,7 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 **Available parameters:**
   - gamma_tpe=0.5
   - warm_start_smbo=None
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 **Use case/properties:**
   - If model evaluations take a long time
@@ -357,7 +357,7 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
   - tree_regressor="extra_tree"
   - xi=0.01
   - warm_start_smbo=None
-  - rand_rest_p=0.03
+  - rand_rest_p=0
 
 ---
   
