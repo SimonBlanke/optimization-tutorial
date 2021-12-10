@@ -4,7 +4,7 @@
 
 <br>
 
-This tutorial describes the optimization strategies and parameters from the [Hyperactive](https://github.com/SimonBlanke/Hyperactive) and [Gradient-Free-Optimizers](https://github.com/SimonBlanke/Gradient-Free-Optimizers) python-packages. All optimizer- and parameter-names correspond to **version 0.5** of Gradient-Free-Optimizers.
+This tutorial describes the optimization strategies and parameters from the [Hyperactive](https://github.com/SimonBlanke/Hyperactive) and [Gradient-Free-Optimizers](https://github.com/SimonBlanke/Gradient-Free-Optimizers) python-packages. All optimizer- and parameter-names correspond to **version 1.0** of Gradient-Free-Optimizers.
 
 <br>
 
@@ -59,7 +59,7 @@ Hill climbing is a very basic optimization technique, that explores the search s
   - n_neighbours=3
   - rand_rest_p=0
 
-**Use case/properties:**
+**Use cases/properties:**
   - Never as a first method of optimization
   - When you have a very good initial point to start from
   - If the search space is very simple and has few local optima or saddle points
@@ -67,6 +67,7 @@ Hill climbing is a very basic optimization technique, that explores the search s
 ---
 
 </details>
+
 
 
 <details>
@@ -83,12 +84,13 @@ Hill climbing is a very basic optimization technique, that explores the search s
   - rand_rest_p=0
   - repulsion_factor=3
 
-**Use case/properties:**
+**Use cases/properties:**
   - When you have a good initial point to start from
 
 ---
   
 </details>
+
 
 
 <details>
@@ -123,13 +125,43 @@ It simulates a temperature that decreases with each iteration, similar to a mate
   - annealing_rate=0.975
   - start_temp=1
 
-**Use case/properties:**
+**Use cases/properties:**
 - When you have a good initial point to start from, but expect the surrounding search space to be very complex
 - Good as a second method of optimization
 
 ---
   
 </details>
+
+
+
+<details>
+<summary><b> DownhillSimplexOptimizer</b></summary>
+  
+<br>
+
+---
+  
+The downhill simplex optimization works by creating a polytope from n + 1 positions in the search space of n dimensions. This polytope is called a simplex, which
+can alter its shape with the following steps:
+  - reflecting
+  - expanding
+  - contracting
+  - shrinking
+
+
+
+**Available parameters:**
+  - alpha=1,
+  - gamma=2,
+  - beta=0.5
+  - sigma=0.5
+
+
+---
+  
+</details>
+
 
 
 <details>
@@ -141,13 +173,14 @@ It simulates a temperature that decreases with each iteration, similar to a mate
   
 The random search explores by choosing a new position at random after each iteration. Some random search implementations choose a new position within a large hypersphere around the current position. The implementation in hyperactive is purely random across the search space in each step.
 
-**Use case/properties:**
+**Use cases/properties:**
   - Very good as a first method of optimization or to start exploring the search space
   - For a short optimization run to get an acceptable solution
 
 ---
   
 </details>
+
 
 
 <details>
@@ -162,7 +195,7 @@ The grid-search explores the search space one step at a time following a diagona
 **Available parameters:**
   - step_size=1
   
-**Use case/properties:**
+**Use cases/properties:**
   - Very good as a first method of optimization or to start exploring the search space
 
 ---
@@ -188,13 +221,14 @@ Random restart hill climbing works by starting a hill climbing search and jumpin
   - rand_rest_p=0
   - n_iter_restart=10
 
-**Use case/properties:**
+**Use cases/properties:**
   - Good as a first method of optimization
   - For a short optimization run to get an acceptable solution
 
 ---
   
 </details>
+
 
 
 <details>
@@ -214,7 +248,7 @@ An algorithm that chooses a new position within a large hypersphere around the c
   - annealing_rate=0.975
   - start_temp=1
 
-**Use case/properties:**
+**Use cases/properties:**
   - Disclaimer: I have not seen this algorithm before, but invented it myself. It seems to be a good alternative to the other random algorithms
   - Good as a first method of optimization
   - For a short optimization run to get an acceptable solution
@@ -222,6 +256,51 @@ An algorithm that chooses a new position within a large hypersphere around the c
 ---
   
 </details>
+
+
+
+<details>
+<summary><b> PowellsMethod</b></summary>
+  
+<br>
+
+---
+  
+This powell's method implementation works by optimizing each search space dimension at a time with a hill climbing algorithm.
+
+**Available parameters:**
+  - iters_p_dim=10
+
+**Use cases/properties:**
+  - 
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> PatternSearch</b></summary>
+  
+<br>
+
+---
+  
+The pattern search creates a cross-like pattern that moves its center position to the best surrounding position or shrinks if no better position is available.
+
+**Available parameters:**
+  - n_positions=4
+  - pattern_size=0.25
+  - reduction=0.9
+
+**Use cases/properties:**
+  - 
+
+---
+  
+</details>
+
 
 
 <details>
@@ -239,13 +318,14 @@ Parallel Tempering initializes multiple simulated annealing searches with differ
   - n_iter_swap=10
   - rand_rest_p=0
 
-**Use case/properties:**
+**Use cases/properties:**
   - Not as dependend of a good initial position as simulated annealing
   - If you have enough time for many model evaluations
 
 ---
   
 </details>
+
 
 
 <details>
@@ -264,13 +344,14 @@ Particle swarm optimization works by initializing a number of positions at the s
   - social_weight=0.5
   - rand_rest_p=0
 
-**Use case/properties:**
+**Use cases/properties:**
   - If the search space is complex and large
   - If you have enough time for many model evaluations
 
 ---
   
 </details>
+
 
 
 <details>
@@ -288,13 +369,14 @@ Evolution strategy mutates and combines the best individuals of a population acr
   - crossover_rate=0.3
   - rand_rest_p=0
 
-**Use case/properties:**
+**Use cases/properties:**
   - If the search space is very complex and large
   - If you have enough time for many model evaluations
 
 ---
   
 </details>
+
 
 
 <details>
@@ -312,7 +394,7 @@ Bayesian optimization chooses new positions by calculating the expected improvem
   - warm_start_smbo=None
   - rand_rest_p=0
 
-**Use case/properties:**
+**Use cases/properties:**
   - If model evaluations take a long time
   - If you do not want to do many iterations
   - If your search space is not to big
@@ -320,6 +402,7 @@ Bayesian optimization chooses new positions by calculating the expected improvem
 ---
   
 </details>
+
 
 
 <details>
@@ -336,7 +419,7 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
   - warm_start_smbo=None
   - rand_rest_p=0
 
-**Use case/properties:**
+**Use cases/properties:**
   - If model evaluations take a long time
   - If you do not want to do many iterations
   - If your search space is not to big
@@ -346,8 +429,9 @@ Tree of Parzen Estimators also chooses new positions by calculating the expected
 </details>
 
 
+
 <details>
-<summary><b> DecisionTreeOptimizer</b></summary>
+<summary><b> ForestOptimizer</b></summary>
 
 <br>
 
@@ -473,7 +557,7 @@ Probability for the optimization algorithm to jump to a random position in an it
   - EvolutionStrategyOptimizer
   - BayesianOptimizer
   - TreeStructuredParzenEstimators
-  - DecisionTreeOptimizer
+  - ForestOptimizer
 
 ---
   
@@ -546,6 +630,86 @@ The start temperatur determines the probability for the algorithm to jump to a w
 
 
 <details>
+<summary><b> alpha</b></summary>
+
+<br>
+
+---
+  
+Reflection parameter of the simplex algorithm.
+
+**available values:** float
+
+**Used by:**
+  - DownhillSimplexOptimizer
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> gamma</b></summary>
+
+<br>
+
+---
+  
+Expansion parameter of the simplex algorithm.
+
+**available values:** float
+
+**Used by:**
+  - DownhillSimplexOptimizer
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> beta</b></summary>
+
+<br>
+
+---
+  
+Contraction parameter of the simplex algorithm.
+
+**available values:** float
+
+**Used by:**
+  - DownhillSimplexOptimizer
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> sigma</b></summary>
+
+<br>
+
+---
+  
+Shrinking parameter of the simplex algorithm.
+
+**available values:** float
+
+**Used by:**
+  - DownhillSimplexOptimizer
+
+---
+  
+</details>
+
+
+
+<details>
 <summary><b> step_size</b></summary>
 
 <br>
@@ -565,7 +729,6 @@ The number of steps the grid search takes after each iteration. If this paramete
 
 
 
-
 <details>
 <summary><b> n_iter_restart</b></summary>
 
@@ -579,6 +742,86 @@ The number of iterations the algorithm performs before jumping to a random posit
 
 **Used by:**
   - RandomRestartHillClimbingOptimizer
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> iters_p_dim</b></summary>
+
+<br>
+
+---
+  
+Number of iterations per dimension of the search space. 
+
+**available values:** int
+
+**Used by:**
+  - PowellsMethod
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> n_positions</b></summary>
+
+<br>
+
+---
+  
+Number of positions that the pattern contains.
+
+**available values:** int
+
+**Used by:**
+  - PatternSearch
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> pattern_size</b></summary>
+
+<br>
+
+---
+  
+Size of the patterns in percentage of the size of the search space in the corresponding dimension.
+
+**available values:** int
+
+**Used by:**
+  - PatternSearch
+
+---
+  
+</details>
+
+
+
+<details>
+<summary><b> reduction</b></summary>
+
+<br>
+
+---
+  
+Factor to change the size of the pattern when no better position is found.
+
+**available values:** int
+
+**Used by:**
+  - PatternSearch
 
 ---
   
@@ -762,7 +1005,7 @@ Parameter for the expected uncertainty of the estimation.
 
 **Used by:**
   - BayesianOptimizer
-  - DecisionTreeOptimizer
+  - ForestOptimizer
 
 ---
   
@@ -784,7 +1027,7 @@ Dataframe that contains the search data of a previous optimization run.
 **Used by:**
   - BayesianOptimizer
   - TreeStructuredParzenEstimators
-  - DecisionTreeOptimizer
+  - ForestOptimizer
 
 ---
   
@@ -825,7 +1068,7 @@ The access to the surrogate model class. Example surrogate model classes can be 
 **available values:** class
 
 **Used by:**
-  - DecisionTreeOptimizer
+  - ForestOptimizer
 
 ---
   
