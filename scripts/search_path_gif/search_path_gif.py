@@ -67,7 +67,7 @@ def plot_search_paths(
         xi, yi = np.meshgrid(x_all, y_all)
         zi = objective_function_np((xi, yi))
 
-        zi = np.rot90(zi, k=3)
+        zi = np.rot90(zi, k=1)
 
         plt.imshow(
             zi,
