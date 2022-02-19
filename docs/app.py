@@ -2,6 +2,26 @@ import streamlit as st
 
 st.set_page_config(page_title="Optimization Tutorial", layout="wide")
 
+st.markdown(
+    """
+        <style>
+               .css-18e3th9 {
+                    padding-top: 0rem;
+                    padding-bottom: 5rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+               .css-1d391kg {
+                    padding-top: 0rem;
+                    padding-right: 1rem;
+                    padding-bottom: 1rem;
+                    padding-left: 1rem;
+                }
+        </style>
+        """,
+    unsafe_allow_html=True,
+)
+
 
 from overview_app import overview_app
 from optimizers import (
@@ -26,7 +46,6 @@ from optimizers import (
 )
 
 app_d = {
-    "Overview": overview_app,
     "Hill Climbing Optimizer": hill_climbing_app,
     "Stochastic Hill Climbing Optimizer": stochastic_hill_climbing_app,
     "Repulsing Hill Climbing Optimizer": repulsing_hill_climbing_app,
@@ -48,7 +67,11 @@ app_d = {
 }
 
 
-choice_ = st.sidebar.radio(" ", options=app_d, index=0)
+choice_0 = st.sidebar.radio(" ", options=("Overview", "Optimizer Infos"), index=0)
 
-
-app_d[choice_]()
+if choice_0 == "Overview":
+    overview_app()
+elif choice_0 == "Optimizer Infos":
+    st.sidebar.write("")
+    choice_opt = st.sidebar.radio("Optimization Algorithms:", options=app_d, index=0)
+    app_d[choice_opt]()
