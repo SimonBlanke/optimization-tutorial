@@ -1,18 +1,14 @@
 import os
 import sys
-
 import pandas as pd
-import streamlit as st
 
 here_ = os.path.dirname(os.path.realpath(__file__))
 
-para_path_ = os.path.join(here_)
-sys.path.append(para_path_)
+sys.path.append(os.path.join(here_, ".."))
 
-from epsilon_app import epsilon_app
-from distribution_app import distribution_app
-from n_neighbours_app import n_neighbours_app
-
+from optimizer_template import optimizer_app
+from overview_parameters_template import overview_app, parameter_app
+from parameters_info import epsilon_intro_, distribution_intro_, n_neighbours_intro_
 from parameters_dicts import epsilon_d_, distribution_d_, n_neighbours_d_
 
 explanation_ = """
@@ -56,50 +52,43 @@ of the search space in the corresponding dimension. This improves the exploratio
 if the sizes of the search space dimensions are differing from each other.
 """
 
+overview_app_args_d = {
+    "title": "Hill Climbing Optimizer",
+    "_name_": "hill_climbing",
+    "explanation_": explanation_,
+    "here_": here_,
+    "implementation_": implementation_,
+    "good_": good_,
+    "bad_": bad_,
+    "info_": info_,
+    "para_df": para_df,
+}
+epsilon_args_d = {
+    "title": "epsilon",
+    "_name_": "epsilon",
+    "explanation_": epsilon_intro_,
+    "here_": here_,
+}
+distribution_args_d = {
+    "title": "distribution",
+    "_name_": "distribution",
+    "explanation_": distribution_intro_,
+    "here_": here_,
+}
+n_neighbours_args_d = {
+    "title": "n_neighbours",
+    "_name_": "n_neighbours",
+    "explanation_": n_neighbours_intro_,
+    "here_": here_,
+}
 
-def overview_():
-    st.title("Hill Climbing Optimizer")
-    st.components.v1.html(
-        """<hr style="height:1px;border:none;color:#333;background-color:#333;" /> """,
-        height=10,
-    )
-    st.write("")
-    col1, col2, col3 = st.columns((2, 1, 1))
-
-    col1.header("Introduction")
-    col1.markdown(explanation_)
-
-    col2.image(os.path.join(here_, "_images/hill_climbing_0.gif"))
-    col3.image(os.path.join(here_, "_images/hill_climbing_1.gif"))
-    col2.image(os.path.join(here_, "_images/hill_climbing_2.gif"))
-    col3.image(os.path.join(here_, "_images/hill_climbing_3.gif"))
-    col2.image(os.path.join(here_, "_images/hill_climbing_4.gif"))
-    col3.image(os.path.join(here_, "_images/hill_climbing_5.gif"))
-
-    col1.header("About the implementation")
-    col1.markdown(implementation_)
-
-    col1.header("Characteristics")
-    col1.success(good_)
-    col1.error(bad_)
-    col1.info(info_)
-
-    col1.header("Parameters")
-    col1.table(para_df)
-
-
-hill_climbing_app_d = {
-    "Overview": overview_,
-    "epsilon": epsilon_app,
-    "distribution": distribution_app,
-    "n_neighbours": n_neighbours_app,
+app_d = {
+    "Overview": (overview_app, overview_app_args_d),
+    "epsilon": (parameter_app, epsilon_args_d),
+    "distribution": (parameter_app, distribution_args_d),
+    "n_neighbours": (parameter_app, n_neighbours_args_d),
 }
 
 
 def hill_climbing_app():
-    st.sidebar.write("")
-    radio_select = st.sidebar.radio(
-        "Parameters", options=("Overview", "epsilon", "distribution", "n_neighbours")
-    )
-
-    hill_climbing_app_d[radio_select]()
+    optimizer_app(app_d)

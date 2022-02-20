@@ -299,7 +299,7 @@ opt_list_smbo = [
     ForestOptimizer,
 ]
 
-
+"""
 for opt_ in opt_list_single:
     generate_gifs_single_opt(opt_)
 """
@@ -308,4 +308,3 @@ for opt_ in opt_list_pop:
 
 for opt_ in opt_list_smbo:
     generate_gifs_smbo_opt(opt_)
-"""

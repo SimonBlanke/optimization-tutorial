@@ -1,59 +1,104 @@
 import os
+import sys
 import pandas as pd
-import streamlit as st
 
 here_ = os.path.dirname(os.path.realpath(__file__))
 
+sys.path.append(os.path.join(here_, ".."))
+
+from optimizer_template import optimizer_app
+from overview_parameters_template import overview_app, parameter_app
+from parameters_info import (
+    epsilon_intro_,
+    distribution_intro_,
+    n_neighbours_intro_,
+    n_iter_restart_intro_,
+)
+from parameters_dicts import (
+    epsilon_d_,
+    distribution_d_,
+    n_neighbours_d_,
+    n_iter_restart_d,
+)
 
 explanation_ = """
 Random restart hill climbing works by starting a hill climbing search and jumping to a random 
-new position after `n_iter_restart` iterations."""
+new position after `n_iter_restart` iterations.
+"""
 
-para_d = {
-    "Parameter": ["epsilon", "distribution", "n_neighbours", "n_iter_restart"],
-    "Type": ["float", "string", "int", "int"],
-    "default": ["0.03", "normal", "3", "10"],
-    "typical range / possible values": [
-        "0.01 ... 0.3",
-        "normal, laplace, logistic, gumbel",
-        "1 ... 10",
-        "5 ... 20",
-    ],
-}
-para_df = pd.DataFrame(para_d)
+para_d = dict()
+para_d.update(epsilon_d_)
+para_d.update(distribution_d_)
+para_d.update(n_neighbours_d_)
+para_d.update(n_iter_restart_d)
 
 
-properties_ = """
+para_df = pd.DataFrame.from_dict(
+    para_d, orient="index", columns=("type", "default", "typical range/possible values")
+)
+
+
+good_ = """ 
 - Good for convex and nonconvex optimization problems
 - Similar to random search for low values of `n_iter_restart`
+"""
+bad_ = """ 
+- ...
+"""
+info_ = """ 
+- ...
 """
 
 
 implementation_ = """
+...
 """
+
+overview_app_args_d = {
+    "title": "Random Restart Hill Climbing Optimizer",
+    "_name_": "random_restart_hill_climbing",
+    "explanation_": explanation_,
+    "here_": here_,
+    "implementation_": implementation_,
+    "good_": good_,
+    "bad_": bad_,
+    "info_": info_,
+    "para_df": para_df,
+}
+epsilon_args_d = {
+    "title": "epsilon",
+    "_name_": "epsilon",
+    "explanation_": epsilon_intro_,
+    "here_": here_,
+}
+distribution_args_d = {
+    "title": "distribution",
+    "_name_": "distribution",
+    "explanation_": distribution_intro_,
+    "here_": here_,
+}
+n_neighbours_args_d = {
+    "title": "n_neighbours",
+    "_name_": "n_neighbours",
+    "explanation_": n_neighbours_intro_,
+    "here_": here_,
+}
+n_iter_restart_args_d = {
+    "title": "n_iter_restart",
+    "_name_": "n_iter_restart",
+    "explanation_": n_iter_restart_intro_,
+    "here_": here_,
+}
+
+
+app_d = {
+    "Overview": (overview_app, overview_app_args_d),
+    "epsilon": (parameter_app, epsilon_args_d),
+    "distribution": (parameter_app, distribution_args_d),
+    "n_neighbours": (parameter_app, n_neighbours_args_d),
+    "n_iter_restart": (parameter_app, n_iter_restart_args_d),
+}
 
 
 def random_restart_hill_climbing_app():
-    st.title("Random Restart Hill Climbing Optimizer")
-    st.components.v1.html(
-        """<hr style="height:1px;border:none;color:#333;background-color:#333;" /> """,
-        height=10,
-    )
-    st.write("")
-    col1, col2, col3 = st.columns((2, 1, 1))
-
-    col1.markdown(explanation_)
-
-    col2.image(os.path.join(here_, "_images/random_restart_hill_climbing_0.gif"))
-    col3.image(os.path.join(here_, "_images/random_restart_hill_climbing_1.gif"))
-    col2.image(os.path.join(here_, "_images/random_restart_hill_climbing_2.gif"))
-    col3.image(os.path.join(here_, "_images/random_restart_hill_climbing_3.gif"))
-
-    # col1.subheader("About the implementation")
-    # col1.markdown(implementation_)
-
-    col1.subheader("Available parameters")
-    col1.table(para_df)
-
-    col1.subheader("Use case")
-    col1.markdown(properties_)
+    optimizer_app(app_d)

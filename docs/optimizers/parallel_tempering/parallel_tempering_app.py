@@ -1,58 +1,84 @@
 import os
+import sys
 import pandas as pd
-import streamlit as st
 
 here_ = os.path.dirname(os.path.realpath(__file__))
 
+sys.path.append(os.path.join(here_, ".."))
+
+from optimizer_template import optimizer_app
+from overview_parameters_template import overview_app, parameter_app
+from parameters_info import (
+    n_iter_swap_intro_,
+    population_intro_,
+)
+from parameters_dicts import (
+    n_iter_swap_parallel_temp_d,
+    population_parallel_temp_d,
+)
 
 explanation_ = """
-Parallel Tempering initializes multiple simulated annealing searches with different temperatures and chooses to swap those temperatures with the following probability."""
+Parallel Tempering initializes multiple simulated annealing searches with different 
+temperatures and chooses to swap those temperatures with the following probability.
+"""
 
-para_d = {
-    "Parameter": ["epsilon", "distribution", "n_neighbours"],
-    "Type": ["float", "string", "int"],
-    "default": ["0.03", "normal", "3"],
-    "typical range / possible values": [
-        "0.01 ... 0.3",
-        "normal, laplace, logistic, gumbel",
-        "1 ... 10",
-    ],
-}
-para_df = pd.DataFrame(para_d)
+para_d = dict()
+para_d.update(population_parallel_temp_d)
+para_d.update(n_iter_swap_parallel_temp_d)
 
 
-properties_ = """
+para_df = pd.DataFrame.from_dict(
+    para_d, orient="index", columns=("type", "default", "typical range/possible values")
+)
+
+
+good_ = """ 
 - Not as dependend of a good initial position as simulated annealing
 - If you have enough time for many model evaluations
+"""
+bad_ = """ 
+- ...
+"""
+info_ = """ 
+- ...
 """
 
 
 implementation_ = """
-The hill climbing algorithm is saving the current position in the search space and finds a new position by selecting a random position around it. This is done with a gaussian distribution. So if the position is further away the probability of getting selected is lower, but never zero. This makes the hill climbing more heuristic and a bit more adaptable. The standard deviation of the gaussian distribution in each dimension is dependend on the size of the search space in the corresponding dimension. This improves the exploration performance if the sizes of the search space dimensions are differing from each other.
+...
 """
+
+overview_app_args_d = {
+    "title": "Parallel Tempering",
+    "_name_": "parallel_tempering",
+    "explanation_": explanation_,
+    "here_": here_,
+    "implementation_": implementation_,
+    "good_": good_,
+    "bad_": bad_,
+    "info_": info_,
+    "para_df": para_df,
+}
+population_args_d = {
+    "title": "population",
+    "_name_": "population",
+    "explanation_": population_intro_,
+    "here_": here_,
+}
+n_iter_swap_args_d = {
+    "title": "n_iter_swap",
+    "_name_": "n_iter_swap",
+    "explanation_": n_iter_swap_intro_,
+    "here_": here_,
+}
+
+
+app_d = {
+    "Overview": (overview_app, overview_app_args_d),
+    "population": (parameter_app, population_args_d),
+    "n_iter_swap": (parameter_app, n_iter_swap_args_d),
+}
 
 
 def parallel_tempering_app():
-    st.title("Parallel Tempering")
-    st.components.v1.html(
-        """<hr style="height:1px;border:none;color:#333;background-color:#333;" /> """,
-        height=10,
-    )
-    st.write("")
-    col1, col2, col3 = st.columns((2, 1, 1))
-
-    col1.markdown(explanation_)
-
-    col2.image(os.path.join(here_, "_images/parallel_tempering_0.gif"))
-    col3.image(os.path.join(here_, "_images/parallel_tempering_1.gif"))
-    col2.image(os.path.join(here_, "_images/parallel_tempering_2.gif"))
-    col3.image(os.path.join(here_, "_images/parallel_tempering_3.gif"))
-
-    col1.subheader("About the implementation")
-    col1.markdown(implementation_)
-
-    col1.subheader("Available parameters")
-    col1.table(para_df)
-
-    col1.subheader("Use case")
-    col1.markdown(properties_)
+    optimizer_app(app_d)

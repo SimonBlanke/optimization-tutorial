@@ -1,59 +1,94 @@
 import os
+import sys
 import pandas as pd
-import streamlit as st
 
 here_ = os.path.dirname(os.path.realpath(__file__))
 
+sys.path.append(os.path.join(here_, ".."))
+
+from optimizer_template import optimizer_app
+from overview_parameters_template import overview_app, parameter_app
+from parameters_info import (
+    n_positions_intro_,
+    pattern_size_intro_,
+    reduction_intro_,
+)
+from parameters_dicts import (
+    n_positions_d,
+    pattern_size_d,
+    reduction_d,
+)
 
 explanation_ = """
-The pattern search creates a cross-like pattern that moves its center position to 
-the best surrounding position or shrinks if no better position is available.
+This powell's method implementation works by optimizing each search space dimension at a 
+time with a hill climbing algorithm.
 """
 
-para_d = {
-    "Parameter": ["n_positions", "pattern_size", "reduction"],
-    "Type": ["int", "float", "float"],
-    "default": ["4", "0.25", "0.9"],
-    "typical range / possible values": [
-        "2 ... 10",
-        "0.05 ... 0.5",
-        "0.75 ... 0.99",
-    ],
-}
-para_df = pd.DataFrame(para_d)
+para_d = dict()
+para_d.update(n_positions_d)
+para_d.update(pattern_size_d)
+para_d.update(reduction_d)
 
 
-properties_ = """
-- Expect good results for convex and nonconvex optimization problems
-- Stopps exploring search space after converging to best position
+para_df = pd.DataFrame.from_dict(
+    para_d, orient="index", columns=("type", "default", "typical range/possible values")
+)
+
+
+good_ = """ 
+- Very well adapted to convex optimization problems
+- Expect good results for nonconvex problems
+"""
+bad_ = """ 
+- ...
+"""
+info_ = """ 
+- ...
 """
 
 
 implementation_ = """
+...
 """
+
+overview_app_args_d = {
+    "title": "Pattern Search",
+    "_name_": "pattern_search",
+    "explanation_": explanation_,
+    "here_": here_,
+    "implementation_": implementation_,
+    "good_": good_,
+    "bad_": bad_,
+    "info_": info_,
+    "para_df": para_df,
+}
+n_positions_args_d = {
+    "title": "n_positions",
+    "_name_": "n_positions",
+    "explanation_": n_positions_intro_,
+    "here_": here_,
+}
+pattern_size_args_d = {
+    "title": "pattern_size",
+    "_name_": "pattern_size",
+    "explanation_": pattern_size_intro_,
+    "here_": here_,
+}
+reduction_args_d = {
+    "title": "reduction",
+    "_name_": "reduction",
+    "explanation_": reduction_intro_,
+    "here_": here_,
+}
+
+
+app_d = {
+    "Overview": (overview_app, overview_app_args_d),
+    "n_positions": (parameter_app, n_positions_args_d),
+    "pattern_size": (parameter_app, pattern_size_args_d),
+    "reduction": (parameter_app, reduction_args_d),
+}
 
 
 def pattern_search_app():
-    st.title("Pattern Search")
-    st.components.v1.html(
-        """<hr style="height:1px;border:none;color:#333;background-color:#333;" /> """,
-        height=10,
-    )
-    st.write("")
-    col1, col2, col3 = st.columns((2, 1, 1))
-
-    col1.markdown(explanation_)
-
-    col2.image(os.path.join(here_, "_images/pattern_search_0.gif"))
-    col3.image(os.path.join(here_, "_images/pattern_search_1.gif"))
-    col2.image(os.path.join(here_, "_images/pattern_search_2.gif"))
-    col3.image(os.path.join(here_, "_images/pattern_search_3.gif"))
-
-    # col1.subheader("About the implementation")
-    # col1.markdown(implementation_)
-
-    col1.subheader("Available parameters")
-    col1.table(para_df)
-
-    col1.subheader("Use case")
-    col1.markdown(properties_)
+    optimizer_app(app_d)

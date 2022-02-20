@@ -13,6 +13,9 @@ n_neighbours_intro_ = """
 The number of positions the algorithm explores from its current postion 
 before jumping to the best one.
 """
+p_accept_intro_ = """ 
+...
+"""
 repulsion_factor_intro_ = """
 If the algorithm does not find a better position the 
 repulsion factor increases epsilon for the next jump.
