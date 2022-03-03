@@ -193,7 +193,7 @@ def generate_gifs_pop_opt(optimizer_class):
         "path": path,
         "optimizer": optimizer_class,
         "opt_para": opt_para,
-        "name": opt_name + "_4.gif",
+        "name": opt_name + "_3.gif",
         "n_iter": n_iter_pop,
         "objective_function": cross_in_tray_function,
         "search_space": cross_in_tray_function.search_space(min=-10, max=10),
@@ -201,11 +201,38 @@ def generate_gifs_pop_opt(optimizer_class):
         "random_state": random_state,
         "title": cross_in_tray_function.name,
     }
+    goldstein_price_function_d = {
+        "path": path,
+        "optimizer": optimizer_class,
+        "opt_para": opt_para,
+        "name": opt_name + "_4.gif",
+        "n_iter": n_iter_pop,
+        "objective_function": goldstein_price_function,
+        "search_space": goldstein_price_function.search_space(min=-5, max=5),
+        "initialize": {"warm_start": [{"x0": 8, "x1": 8}], "vertices": 4},
+        "random_state": random_state,
+        "title": goldstein_price_function.name,
+    }
+
+    easom_function_d = {
+        "path": path,
+        "optimizer": optimizer_class,
+        "opt_para": opt_para,
+        "name": opt_name + "_5.gif",
+        "n_iter": n_iter_pop,
+        "objective_function": easom_function,
+        "search_space": easom_function.search_space(min=-5, max=5),
+        "initialize": {"warm_start": [{"x0": 8, "x1": 8}], "vertices": 4},
+        "random_state": random_state,
+        "title": easom_function.name,
+    }
 
     search_path_gif(**sphere_function_d)
     search_path_gif(**ackley_function_d)
     search_path_gif(**himmelblaus_function_d)
     search_path_gif(**cross_in_tray_function_d)
+    search_path_gif(**goldstein_price_function_d)
+    search_path_gif(**easom_function_d)
 
 
 def generate_gifs_smbo_opt(optimizer_class):
@@ -263,11 +290,37 @@ def generate_gifs_smbo_opt(optimizer_class):
         "random_state": random_state,
         "title": cross_in_tray_function.name,
     }
+    goldstein_price_function_d = {
+        "path": path,
+        "optimizer": optimizer_class,
+        "opt_para": opt_para,
+        "name": opt_name + "_4.gif",
+        "n_iter": n_iter_smbo,
+        "objective_function": goldstein_price_function,
+        "search_space": goldstein_price_function.search_space(min=-5, max=5),
+        "initialize": {"warm_start": [{"x0": 8, "x1": 8}], "vertices": 4},
+        "random_state": random_state,
+        "title": goldstein_price_function.name,
+    }
 
+    easom_function_d = {
+        "path": path,
+        "optimizer": optimizer_class,
+        "opt_para": opt_para,
+        "name": opt_name + "_5.gif",
+        "n_iter": n_iter_smbo,
+        "objective_function": easom_function,
+        "search_space": easom_function.search_space(min=-5, max=5),
+        "initialize": {"warm_start": [{"x0": 8, "x1": 8}], "vertices": 4},
+        "random_state": random_state,
+        "title": easom_function.name,
+    }
     search_path_gif(**sphere_function_d)
     search_path_gif(**ackley_function_d)
     search_path_gif(**himmelblaus_function_d)
     search_path_gif(**cross_in_tray_function_d)
+    search_path_gif(**goldstein_price_function_d)
+    search_path_gif(**easom_function_d)
 
 
 opt_list_single = [

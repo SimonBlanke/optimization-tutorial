@@ -1,56 +1,96 @@
 import os
+import sys
 import pandas as pd
-import streamlit as st
 
 here_ = os.path.dirname(os.path.realpath(__file__))
 
+sys.path.append(os.path.join(here_, ".."))
+
+from optimizer_template import optimizer_app
+from overview_parameters_template import overview_app, parameter_app
+from parameters_info import (
+    tree_regressor_intro_,
+    xi_intro_,
+    warm_start_smbo_intro_,
+)
+from parameters_dicts import (
+    tree_regressor_d,
+    xi_forest_opt_d,
+    warm_start_smbo_d,
+)
 
 explanation_ = """
+Tree of Parzen Estimators also chooses new positions by calculating the expected improvement. 
+It does so by calculating the ratio of probability being among the best positions and 
+the worst positions. Those probabilities are determined with a kernel density estimator,
+that is trained on alrady evaluated positions.
 """
 
-para_d = {
-    "Parameter": ["epsilon", "distribution", "n_neighbours"],
-    "Type": ["float", "string", "int"],
-    "default": ["0.03", "normal", "3"],
-    "typical range / possible values": [
-        "0.01 ... 0.3",
-        "normal, laplace, logistic, gumbel",
-        "1 ... 10",
-    ],
-}
-para_df = pd.DataFrame(para_d)
+para_d = dict()
+para_d.update(tree_regressor_d)
+para_d.update(xi_forest_opt_d)
+para_d.update(warm_start_smbo_d)
 
 
-properties_ = """
+para_df = pd.DataFrame.from_dict(
+    para_d, orient="index", columns=("type", "default", "typical range/possible values")
+)
+
+
+good_ = """ 
+- If model evaluations take a long time
+- If you do not want to do many iterations
+- If your search space is not to big
+"""
+bad_ = """ 
+- ...
+"""
+info_ = """ 
 - ...
 """
 
 
 implementation_ = """
+...
 """
+
+overview_app_args_d = {
+    "title": "Forest Optimization",
+    "_name_": "forest_optimization",
+    "explanation_": explanation_,
+    "here_": here_,
+    "implementation_": implementation_,
+    "good_": good_,
+    "bad_": bad_,
+    "info_": info_,
+    "para_df": para_df,
+}
+tree_regressor_args_d = {
+    "title": "tree_regressor",
+    "_name_": "tree_regressor",
+    "explanation_": tree_regressor_intro_,
+    "here_": here_,
+}
+xi_args_d = {
+    "title": "xi",
+    "_name_": "xi",
+    "explanation_": xi_intro_,
+    "here_": here_,
+}
+warm_start_smbo_args_d = {
+    "title": "warm_start_smbo",
+    "_name_": "warm_start_smbo",
+    "explanation_": warm_start_smbo_intro_,
+    "here_": here_,
+}
+
+app_d = {
+    "Overview": (overview_app, overview_app_args_d),
+    "tree_regressor": (parameter_app, tree_regressor_args_d),
+    "xi": (parameter_app, xi_args_d),
+    "warm_start_smbo": (parameter_app, warm_start_smbo_args_d),
+}
 
 
 def forest_optimization_app():
-    st.title("Forest Optimization")
-    st.components.v1.html(
-        """<hr style="height:1px;border:none;color:#333;background-color:#333;" /> """,
-        height=10,
-    )
-    st.write("")
-    col1, col2, col3 = st.columns((2, 1, 1))
-
-    col1.markdown(explanation_)
-
-    col2.image(os.path.join(here_, "_images/forest_optimization_0.gif"))
-    col3.image(os.path.join(here_, "_images/forest_optimization_1.gif"))
-    col2.image(os.path.join(here_, "_images/forest_optimization_2.gif"))
-    col3.image(os.path.join(here_, "_images/forest_optimization_3.gif"))
-
-    col1.subheader("About the implementation")
-    col1.markdown(implementation_)
-
-    col1.subheader("Available parameters")
-    col1.table(para_df)
-
-    col1.subheader("Use case")
-    col1.markdown(properties_)
+    optimizer_app(app_d)

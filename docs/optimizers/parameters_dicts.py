@@ -76,8 +76,8 @@ population_evo_strat_d = {
 mutation_rate_d = {
     "mutation_rate": ["float", "0.7", "0.1 ... 0.9"],
 }
-mutation_rate_d = {
-    "mutation_rate": ["float", "0.3", "0.1 ... 0.9"],
+crossover_rate_d = {
+    "crossover_rate": ["float", "0.3", "0.1 ... 0.9"],
 }
 gpr_bayes_opt_d = {
     "gpr": ["float", "0.3", "0.1 ... 0.9"],
