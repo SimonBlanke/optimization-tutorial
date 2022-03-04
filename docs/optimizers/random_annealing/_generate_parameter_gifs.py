@@ -9,7 +9,7 @@ import warnings
 warnings.warn = warn
 
 
-from gradient_free_optimizers import StochasticHillClimbingOptimizer
+from gradient_free_optimizers import RandomAnnealingOptimizer
 
 
 from surfaces.test_functions import SphereFunction, AckleyFunction
@@ -18,7 +18,7 @@ from gradient_free_optimization_plots import search_path_gif
 
 n_iter = 150
 random_state = 0
-optimizer_class = StochasticHillClimbingOptimizer
+optimizer_class = RandomAnnealingOptimizer
 
 sphere_function = SphereFunction(n_dim=2)
 ackley_function = AckleyFunction()
@@ -153,43 +153,88 @@ def generate_gifs_n_neighbours_():
     search_path_gif(**n_neighbours_12_d)
 
 
-def generate_gifs_p_accept_():
-    p_accept_0_d = copy.copy(hill_climbing_sphere_function_template_d)
-    p_accept_1_d = copy.copy(hill_climbing_sphere_function_template_d)
-    p_accept_2_d = copy.copy(hill_climbing_sphere_function_template_d)
+def generate_gifs_annealing_rate_():
+    annealing_rate_0_d = copy.copy(hill_climbing_sphere_function_template_d)
+    annealing_rate_1_d = copy.copy(hill_climbing_sphere_function_template_d)
+    annealing_rate_2_d = copy.copy(hill_climbing_sphere_function_template_d)
 
-    p_accept_10_d = copy.copy(hill_climbing_ackley_function_template_d)
-    p_accept_11_d = copy.copy(hill_climbing_ackley_function_template_d)
-    p_accept_12_d = copy.copy(hill_climbing_ackley_function_template_d)
+    annealing_rate_10_d = copy.copy(hill_climbing_ackley_function_template_d)
+    annealing_rate_11_d = copy.copy(hill_climbing_ackley_function_template_d)
+    annealing_rate_12_d = copy.copy(hill_climbing_ackley_function_template_d)
 
-    p_accept_0_d["opt_para"] = {"p_accept": 1}
-    p_accept_0_d["name"] = "p_accept_0.gif"
+    para1 = 0.9
+    para2 = 0.95
+    para3 = 0.99
 
-    p_accept_1_d["opt_para"] = {"p_accept": 4}
-    p_accept_1_d["name"] = "p_accept_1.gif"
+    annealing_rate_0_d["opt_para"] = {"annealing_rate": para1}
+    annealing_rate_0_d["name"] = "annealing_rate_0.gif"
 
-    p_accept_2_d["opt_para"] = {"p_accept": 8}
-    p_accept_2_d["name"] = "p_accept_2.gif"
+    annealing_rate_1_d["opt_para"] = {"annealing_rate": para2}
+    annealing_rate_1_d["name"] = "annealing_rate_1.gif"
 
-    p_accept_10_d["opt_para"] = {"p_accept": 1}
-    p_accept_10_d["name"] = "p_accept_3.gif"
+    annealing_rate_2_d["opt_para"] = {"annealing_rate": para3}
+    annealing_rate_2_d["name"] = "annealing_rate_2.gif"
 
-    p_accept_11_d["opt_para"] = {"p_accept": 4}
-    p_accept_11_d["name"] = "p_accept_4.gif"
+    annealing_rate_10_d["opt_para"] = {"annealing_rate": para1}
+    annealing_rate_10_d["name"] = "annealing_rate_3.gif"
 
-    p_accept_12_d["opt_para"] = {"p_accept": 8}
-    p_accept_12_d["name"] = "p_accept_5.gif"
+    annealing_rate_11_d["opt_para"] = {"annealing_rate": para2}
+    annealing_rate_11_d["name"] = "annealing_rate_4.gif"
 
-    search_path_gif(**p_accept_0_d)
-    search_path_gif(**p_accept_1_d)
-    search_path_gif(**p_accept_2_d)
+    annealing_rate_12_d["opt_para"] = {"annealing_rate": para3}
+    annealing_rate_12_d["name"] = "annealing_rate_5.gif"
 
-    search_path_gif(**p_accept_10_d)
-    search_path_gif(**p_accept_11_d)
-    search_path_gif(**p_accept_12_d)
+    search_path_gif(**annealing_rate_0_d)
+    search_path_gif(**annealing_rate_1_d)
+    search_path_gif(**annealing_rate_2_d)
+
+    search_path_gif(**annealing_rate_10_d)
+    search_path_gif(**annealing_rate_11_d)
+    search_path_gif(**annealing_rate_12_d)
+
+
+def generate_gifs_start_temp_():
+    start_temp_0_d = copy.copy(hill_climbing_sphere_function_template_d)
+    start_temp_1_d = copy.copy(hill_climbing_sphere_function_template_d)
+    start_temp_2_d = copy.copy(hill_climbing_sphere_function_template_d)
+
+    start_temp_10_d = copy.copy(hill_climbing_ackley_function_template_d)
+    start_temp_11_d = copy.copy(hill_climbing_ackley_function_template_d)
+    start_temp_12_d = copy.copy(hill_climbing_ackley_function_template_d)
+
+    para1 = 0.5
+    para2 = 1.2
+    para3 = 2
+
+    start_temp_0_d["opt_para"] = {"start_temp": para1}
+    start_temp_0_d["name"] = "start_temp_0.gif"
+
+    start_temp_1_d["opt_para"] = {"start_temp": para2}
+    start_temp_1_d["name"] = "start_temp_1.gif"
+
+    start_temp_2_d["opt_para"] = {"start_temp": para3}
+    start_temp_2_d["name"] = "start_temp_2.gif"
+
+    start_temp_10_d["opt_para"] = {"start_temp": para1}
+    start_temp_10_d["name"] = "start_temp_3.gif"
+
+    start_temp_11_d["opt_para"] = {"start_temp": para2}
+    start_temp_11_d["name"] = "start_temp_4.gif"
+
+    start_temp_12_d["opt_para"] = {"start_temp": para3}
+    start_temp_12_d["name"] = "start_temp_5.gif"
+
+    search_path_gif(**start_temp_0_d)
+    search_path_gif(**start_temp_1_d)
+    search_path_gif(**start_temp_2_d)
+
+    search_path_gif(**start_temp_10_d)
+    search_path_gif(**start_temp_11_d)
+    search_path_gif(**start_temp_12_d)
 
 
 generate_gifs_epsilon_()
 generate_gifs_distribution_()
 generate_gifs_n_neighbours_()
-generate_gifs_p_accept_()
+generate_gifs_annealing_rate_()
+generate_gifs_start_temp_()

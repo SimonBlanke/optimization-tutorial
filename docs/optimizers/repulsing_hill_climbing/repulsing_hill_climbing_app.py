@@ -85,9 +85,9 @@ n_neighbours_args_d = {
     "explanation_": n_neighbours_intro_,
     "here_": here_,
 }
-epulsion_factor_args_d = {
-    "title": "epulsion_factor",
-    "_name_": "epulsion_factor",
+repulsion_factor_args_d = {
+    "title": "repulsion_factor",
+    "_name_": "repulsion_factor",
     "explanation_": repulsion_factor_intro_,
     "here_": here_,
 }
@@ -98,7 +98,7 @@ app_d = {
     "epsilon": (parameter_app, epsilon_args_d),
     "distribution": (parameter_app, distribution_args_d),
     "n_neighbours": (parameter_app, n_neighbours_args_d),
-    "epulsion_factor": (parameter_app, epulsion_factor_args_d),
+    "repulsion_factor": (parameter_app, repulsion_factor_args_d),
 }
 
 

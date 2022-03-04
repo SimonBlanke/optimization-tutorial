@@ -81,9 +81,7 @@ warm_start_smbo_args_d = {
 
 app_d = {
     "Overview": (overview_app, overview_app_args_d),
-    "gpr": (parameter_app, gpr_args_d),
     "xi": (parameter_app, xi_args_d),
-    "warm_start_smbo": (parameter_app, warm_start_smbo_args_d),
 }
 
 

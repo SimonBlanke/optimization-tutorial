@@ -9,7 +9,7 @@ import warnings
 warnings.warn = warn
 
 
-from gradient_free_optimizers import StochasticHillClimbingOptimizer
+from gradient_free_optimizers import PatternSearch
 
 
 from surfaces.test_functions import SphereFunction, AckleyFunction
@@ -18,7 +18,7 @@ from gradient_free_optimization_plots import search_path_gif
 
 n_iter = 150
 random_state = 0
-optimizer_class = StochasticHillClimbingOptimizer
+optimizer_class = PatternSearch
 
 sphere_function = SphereFunction(n_dim=2)
 ackley_function = AckleyFunction()
@@ -45,151 +45,126 @@ hill_climbing_ackley_function_template_d = {
 }
 
 
-def generate_gifs_epsilon_():
-    epsilon_0_d = copy.copy(hill_climbing_sphere_function_template_d)
-    epsilon_1_d = copy.copy(hill_climbing_sphere_function_template_d)
-    epsilon_2_d = copy.copy(hill_climbing_sphere_function_template_d)
+def generate_gifs_n_positions_():
+    n_positions_0_d = copy.copy(hill_climbing_sphere_function_template_d)
+    n_positions_1_d = copy.copy(hill_climbing_sphere_function_template_d)
+    n_positions_2_d = copy.copy(hill_climbing_sphere_function_template_d)
 
-    epsilon_10_d = copy.copy(hill_climbing_ackley_function_template_d)
-    epsilon_11_d = copy.copy(hill_climbing_ackley_function_template_d)
-    epsilon_12_d = copy.copy(hill_climbing_ackley_function_template_d)
+    n_positions_10_d = copy.copy(hill_climbing_ackley_function_template_d)
+    n_positions_11_d = copy.copy(hill_climbing_ackley_function_template_d)
+    n_positions_12_d = copy.copy(hill_climbing_ackley_function_template_d)
 
-    epsilon_0_d["opt_para"] = {"epsilon": 0.01}
-    epsilon_0_d["name"] = "epsilon_0.gif"
+    para1 = 2
+    para2 = 5
+    para3 = 8
 
-    epsilon_1_d["opt_para"] = {"epsilon": 0.08}
-    epsilon_1_d["name"] = "epsilon_1.gif"
+    n_positions_0_d["opt_para"] = {"n_positions": para1}
+    n_positions_0_d["name"] = "n_positions_0.gif"
 
-    epsilon_2_d["opt_para"] = {"epsilon": 0.3}
-    epsilon_2_d["name"] = "epsilon_2.gif"
+    n_positions_1_d["opt_para"] = {"n_positions": para2}
+    n_positions_1_d["name"] = "n_positions_1.gif"
 
-    epsilon_10_d["opt_para"] = {"epsilon": 0.01}
-    epsilon_10_d["name"] = "epsilon_3.gif"
+    n_positions_2_d["opt_para"] = {"n_positions": para3}
+    n_positions_2_d["name"] = "n_positions_2.gif"
 
-    epsilon_11_d["opt_para"] = {"epsilon": 0.08}
-    epsilon_11_d["name"] = "epsilon_4.gif"
+    n_positions_10_d["opt_para"] = {"n_positions": para1}
+    n_positions_10_d["name"] = "n_positions_3.gif"
 
-    epsilon_12_d["opt_para"] = {"epsilon": 0.3}
-    epsilon_12_d["name"] = "epsilon_5.gif"
+    n_positions_11_d["opt_para"] = {"n_positions": para2}
+    n_positions_11_d["name"] = "n_positions_4.gif"
 
-    search_path_gif(**epsilon_0_d)
-    search_path_gif(**epsilon_1_d)
-    search_path_gif(**epsilon_2_d)
+    n_positions_12_d["opt_para"] = {"n_positions": para3}
+    n_positions_12_d["name"] = "n_positions_5.gif"
 
-    search_path_gif(**epsilon_10_d)
-    search_path_gif(**epsilon_11_d)
-    search_path_gif(**epsilon_12_d)
+    search_path_gif(**n_positions_0_d)
+    search_path_gif(**n_positions_1_d)
+    search_path_gif(**n_positions_2_d)
 
-
-def generate_gifs_distribution_():
-    distribution_0_d = copy.copy(hill_climbing_sphere_function_template_d)
-    distribution_1_d = copy.copy(hill_climbing_sphere_function_template_d)
-    distribution_2_d = copy.copy(hill_climbing_sphere_function_template_d)
-
-    distribution_10_d = copy.copy(hill_climbing_ackley_function_template_d)
-    distribution_11_d = copy.copy(hill_climbing_ackley_function_template_d)
-    distribution_12_d = copy.copy(hill_climbing_ackley_function_template_d)
-
-    distribution_0_d["opt_para"] = {"distribution": "normal"}
-    distribution_0_d["name"] = "distribution_0.gif"
-
-    distribution_1_d["opt_para"] = {"distribution": "laplace"}
-    distribution_1_d["name"] = "distribution_1.gif"
-
-    distribution_2_d["opt_para"] = {"distribution": "logistic"}
-    distribution_2_d["name"] = "distribution_2.gif"
-
-    distribution_10_d["opt_para"] = {"distribution": "normal"}
-    distribution_10_d["name"] = "distribution_3.gif"
-
-    distribution_11_d["opt_para"] = {"distribution": "laplace"}
-    distribution_11_d["name"] = "distribution_4.gif"
-
-    distribution_12_d["opt_para"] = {"distribution": "logistic"}
-    distribution_12_d["name"] = "distribution_5.gif"
-
-    search_path_gif(**distribution_0_d)
-    search_path_gif(**distribution_1_d)
-    search_path_gif(**distribution_2_d)
-
-    search_path_gif(**distribution_10_d)
-    search_path_gif(**distribution_11_d)
-    search_path_gif(**distribution_12_d)
+    search_path_gif(**n_positions_10_d)
+    search_path_gif(**n_positions_11_d)
+    search_path_gif(**n_positions_12_d)
 
 
-def generate_gifs_n_neighbours_():
-    n_neighbours_0_d = copy.copy(hill_climbing_sphere_function_template_d)
-    n_neighbours_1_d = copy.copy(hill_climbing_sphere_function_template_d)
-    n_neighbours_2_d = copy.copy(hill_climbing_sphere_function_template_d)
+def generate_gifs_pattern_size_():
+    pattern_size_0_d = copy.copy(hill_climbing_sphere_function_template_d)
+    pattern_size_1_d = copy.copy(hill_climbing_sphere_function_template_d)
+    pattern_size_2_d = copy.copy(hill_climbing_sphere_function_template_d)
 
-    n_neighbours_10_d = copy.copy(hill_climbing_ackley_function_template_d)
-    n_neighbours_11_d = copy.copy(hill_climbing_ackley_function_template_d)
-    n_neighbours_12_d = copy.copy(hill_climbing_ackley_function_template_d)
+    pattern_size_10_d = copy.copy(hill_climbing_ackley_function_template_d)
+    pattern_size_11_d = copy.copy(hill_climbing_ackley_function_template_d)
+    pattern_size_12_d = copy.copy(hill_climbing_ackley_function_template_d)
 
-    n_neighbours_0_d["opt_para"] = {"n_neighbours": 1}
-    n_neighbours_0_d["name"] = "n_neighbours_0.gif"
+    para1 = 0.1
+    para2 = 0.3
+    para3 = 0.5
 
-    n_neighbours_1_d["opt_para"] = {"n_neighbours": 4}
-    n_neighbours_1_d["name"] = "n_neighbours_1.gif"
+    pattern_size_0_d["opt_para"] = {"pattern_size": para1}
+    pattern_size_0_d["name"] = "pattern_size_0.gif"
 
-    n_neighbours_2_d["opt_para"] = {"n_neighbours": 8}
-    n_neighbours_2_d["name"] = "n_neighbours_2.gif"
+    pattern_size_1_d["opt_para"] = {"pattern_size": para2}
+    pattern_size_1_d["name"] = "pattern_size_1.gif"
 
-    n_neighbours_10_d["opt_para"] = {"n_neighbours": 1}
-    n_neighbours_10_d["name"] = "n_neighbours_3.gif"
+    pattern_size_2_d["opt_para"] = {"pattern_size": para3}
+    pattern_size_2_d["name"] = "pattern_size_2.gif"
 
-    n_neighbours_11_d["opt_para"] = {"n_neighbours": 4}
-    n_neighbours_11_d["name"] = "n_neighbours_4.gif"
+    pattern_size_10_d["opt_para"] = {"pattern_size": para1}
+    pattern_size_10_d["name"] = "pattern_size_3.gif"
 
-    n_neighbours_12_d["opt_para"] = {"n_neighbours": 8}
-    n_neighbours_12_d["name"] = "n_neighbours_5.gif"
+    pattern_size_11_d["opt_para"] = {"pattern_size": para2}
+    pattern_size_11_d["name"] = "pattern_size_4.gif"
 
-    search_path_gif(**n_neighbours_0_d)
-    search_path_gif(**n_neighbours_1_d)
-    search_path_gif(**n_neighbours_2_d)
+    pattern_size_12_d["opt_para"] = {"pattern_size": para3}
+    pattern_size_12_d["name"] = "pattern_size_5.gif"
 
-    search_path_gif(**n_neighbours_10_d)
-    search_path_gif(**n_neighbours_11_d)
-    search_path_gif(**n_neighbours_12_d)
+    search_path_gif(**pattern_size_0_d)
+    search_path_gif(**pattern_size_1_d)
+    search_path_gif(**pattern_size_2_d)
 
-
-def generate_gifs_p_accept_():
-    p_accept_0_d = copy.copy(hill_climbing_sphere_function_template_d)
-    p_accept_1_d = copy.copy(hill_climbing_sphere_function_template_d)
-    p_accept_2_d = copy.copy(hill_climbing_sphere_function_template_d)
-
-    p_accept_10_d = copy.copy(hill_climbing_ackley_function_template_d)
-    p_accept_11_d = copy.copy(hill_climbing_ackley_function_template_d)
-    p_accept_12_d = copy.copy(hill_climbing_ackley_function_template_d)
-
-    p_accept_0_d["opt_para"] = {"p_accept": 1}
-    p_accept_0_d["name"] = "p_accept_0.gif"
-
-    p_accept_1_d["opt_para"] = {"p_accept": 4}
-    p_accept_1_d["name"] = "p_accept_1.gif"
-
-    p_accept_2_d["opt_para"] = {"p_accept": 8}
-    p_accept_2_d["name"] = "p_accept_2.gif"
-
-    p_accept_10_d["opt_para"] = {"p_accept": 1}
-    p_accept_10_d["name"] = "p_accept_3.gif"
-
-    p_accept_11_d["opt_para"] = {"p_accept": 4}
-    p_accept_11_d["name"] = "p_accept_4.gif"
-
-    p_accept_12_d["opt_para"] = {"p_accept": 8}
-    p_accept_12_d["name"] = "p_accept_5.gif"
-
-    search_path_gif(**p_accept_0_d)
-    search_path_gif(**p_accept_1_d)
-    search_path_gif(**p_accept_2_d)
-
-    search_path_gif(**p_accept_10_d)
-    search_path_gif(**p_accept_11_d)
-    search_path_gif(**p_accept_12_d)
+    search_path_gif(**pattern_size_10_d)
+    search_path_gif(**pattern_size_11_d)
+    search_path_gif(**pattern_size_12_d)
 
 
-generate_gifs_epsilon_()
-generate_gifs_distribution_()
-generate_gifs_n_neighbours_()
-generate_gifs_p_accept_()
+def generate_gifs_reduction_():
+    reduction_0_d = copy.copy(hill_climbing_sphere_function_template_d)
+    reduction_1_d = copy.copy(hill_climbing_sphere_function_template_d)
+    reduction_2_d = copy.copy(hill_climbing_sphere_function_template_d)
+
+    reduction_10_d = copy.copy(hill_climbing_ackley_function_template_d)
+    reduction_11_d = copy.copy(hill_climbing_ackley_function_template_d)
+    reduction_12_d = copy.copy(hill_climbing_ackley_function_template_d)
+
+    para1 = 0.75
+    para2 = 0.8
+    para3 = 0.99
+
+    reduction_0_d["opt_para"] = {"reduction": para1}
+    reduction_0_d["name"] = "reduction_0.gif"
+
+    reduction_1_d["opt_para"] = {"reduction": para2}
+    reduction_1_d["name"] = "reduction_1.gif"
+
+    reduction_2_d["opt_para"] = {"reduction": para3}
+    reduction_2_d["name"] = "reduction_2.gif"
+
+    reduction_10_d["opt_para"] = {"reduction": para1}
+    reduction_10_d["name"] = "reduction_3.gif"
+
+    reduction_11_d["opt_para"] = {"reduction": para2}
+    reduction_11_d["name"] = "reduction_4.gif"
+
+    reduction_12_d["opt_para"] = {"reduction": para3}
+    reduction_12_d["name"] = "reduction_5.gif"
+
+    search_path_gif(**reduction_0_d)
+    search_path_gif(**reduction_1_d)
+    search_path_gif(**reduction_2_d)
+
+    search_path_gif(**reduction_10_d)
+    search_path_gif(**reduction_11_d)
+    search_path_gif(**reduction_12_d)
+
+
+generate_gifs_n_positions_()
+generate_gifs_pattern_size_()
+generate_gifs_reduction_()
