@@ -97,5 +97,5 @@ app_d = {
 }
 
 
-def stochastic_hill_climbing_app():
+def stochastic_hill_climbing_app(gfo_version):
     optimizer_app(app_d)

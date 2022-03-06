@@ -70,5 +70,5 @@ app_d = {
 }
 
 
-def powells_method_app():
+def powells_method_app(gfo_version):
     optimizer_app(app_d)

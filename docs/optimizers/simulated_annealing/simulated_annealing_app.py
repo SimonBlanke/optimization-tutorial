@@ -112,5 +112,5 @@ app_d = {
 }
 
 
-def simulated_annealing_app():
+def simulated_annealing_app(gfo_version):
     optimizer_app(app_d)

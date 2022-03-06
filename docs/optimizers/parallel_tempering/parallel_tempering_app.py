@@ -80,5 +80,5 @@ app_d = {
 }
 
 
-def parallel_tempering_app():
+def parallel_tempering_app(gfo_version):
     optimizer_app(app_d)

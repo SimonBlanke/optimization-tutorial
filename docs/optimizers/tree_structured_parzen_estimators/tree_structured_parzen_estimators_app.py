@@ -82,5 +82,5 @@ app_d = {
 }
 
 
-def tree_structured_parzen_estimators_app():
+def tree_structured_parzen_estimators_app(gfo_version):
     optimizer_app(app_d)

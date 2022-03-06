@@ -100,5 +100,5 @@ app_d = {
 }
 
 
-def random_restart_hill_climbing_app():
+def random_restart_hill_climbing_app(gfo_version):
     optimizer_app(app_d)

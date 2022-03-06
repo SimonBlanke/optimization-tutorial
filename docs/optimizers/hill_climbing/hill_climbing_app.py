@@ -90,5 +90,5 @@ app_d = {
 }
 
 
-def hill_climbing_app():
+def hill_climbing_app(gfo_version):
     optimizer_app(app_d)

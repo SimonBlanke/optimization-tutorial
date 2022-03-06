@@ -92,5 +92,5 @@ app_d = {
 }
 
 
-def forest_optimization_app():
+def forest_optimization_app(gfo_version):
     optimizer_app(app_d)

@@ -90,5 +90,5 @@ app_d = {
 }
 
 
-def pattern_search_app():
+def pattern_search_app(gfo_version):
     optimizer_app(app_d)

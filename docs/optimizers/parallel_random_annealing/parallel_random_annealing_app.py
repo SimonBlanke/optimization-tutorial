@@ -30,7 +30,7 @@ implementation_ = """
 """
 
 
-def parallel_random_annealing_app():
+def parallel_random_annealing_app(gfo_version):
     st.title("Parallel Random Annealing")
     st.components.v1.html(
         """<hr style="height:1px;border:none;color:#333;background-color:#333;" /> """,

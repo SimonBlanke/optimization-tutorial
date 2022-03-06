@@ -100,5 +100,5 @@ app_d = {
 }
 
 
-def particle_swarm_optimization_app():
+def particle_swarm_optimization_app(gfo_version):
     optimizer_app(app_d)

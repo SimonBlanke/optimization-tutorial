@@ -80,7 +80,7 @@ crossover_rate_d = {
     "crossover_rate": ["float", "0.3", "0.1 ... 0.9"],
 }
 gpr_bayes_opt_d = {
-    "gpr": ["float", "0.3", "0.1 ... 0.9"],
+    "gpr": ["class", "0.3", "-"],
 }
 xi_bayes_opt_d = {
     "xi": ["float", "0.3", "0.1 ... 0.9"],
@@ -108,5 +108,5 @@ tree_para_d = {
     "tree_para": ["dict", "{'n_estimators': 100}", "-"],
 }
 xi_forest_opt_d = {
-    "tree_para": ["float", "0.03", "0.001 ... 0.1"],
+    "xi": ["float", "0.03", "0.001 ... 0.1"],
 }

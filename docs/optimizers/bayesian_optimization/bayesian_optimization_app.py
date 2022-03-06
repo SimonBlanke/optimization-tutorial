@@ -85,5 +85,5 @@ app_d = {
 }
 
 
-def bayesian_optimization_app():
+def bayesian_optimization_app(gfo_version):
     optimizer_app(app_d)

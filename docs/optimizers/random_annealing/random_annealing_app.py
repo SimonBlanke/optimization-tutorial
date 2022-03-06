@@ -111,5 +111,5 @@ app_d = {
 }
 
 
-def random_annealing_app():
+def random_annealing_app(gfo_version):
     optimizer_app(app_d)

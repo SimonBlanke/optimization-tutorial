@@ -90,5 +90,5 @@ app_d = {
 }
 
 
-def evolution_strategy_app():
+def evolution_strategy_app(gfo_version):
     optimizer_app(app_d)

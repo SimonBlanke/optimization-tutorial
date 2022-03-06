@@ -102,5 +102,5 @@ app_d = {
 }
 
 
-def repulsing_hill_climbing_app():
+def repulsing_hill_climbing_app(gfo_version):
     optimizer_app(app_d)

@@ -71,5 +71,5 @@ app_d = {
 }
 
 
-def grid_search_app():
+def grid_search_app(gfo_version):
     optimizer_app(app_d)

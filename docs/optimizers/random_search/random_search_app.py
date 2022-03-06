@@ -61,5 +61,5 @@ app_d = {
 }
 
 
-def random_search_app():
+def random_search_app(gfo_version):
     optimizer_app(app_d)

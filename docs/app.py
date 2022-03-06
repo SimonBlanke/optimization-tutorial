@@ -58,7 +58,7 @@ app_d = {
     "Pattern Search": pattern_search_app,
     "Random Annealing Optimizer": random_annealing_app,
     "Parallel Tempering Optimizer": parallel_tempering_app,
-    "Parallel Annealing Optimizer": parallel_random_annealing_app,
+    # "Parallel Annealing Optimizer": parallel_random_annealing_app,
     "Particle Swarm Optimizer": particle_swarm_optimization_app,
     "Evolution Strategy Optimizer": evolution_strategy_app,
     "Bayesian Optimizer": bayesian_optimization_app,
@@ -67,11 +67,20 @@ app_d = {
 }
 
 
-choice_0 = st.sidebar.radio(" ", options=("Overview", "Optimizer Infos"), index=0)
+choice_0 = st.sidebar.radio(
+    " ", options=("Overview", "Optimization Algorithms"), index=0
+)
+
+gfo_versions = ["1.0"]
+gfo_version = st.sidebar.selectbox(
+    "Gradient-Free-Optimizers Version:",
+    options=["1.0"],
+    index=int(len(gfo_versions) - 1),
+)
 
 if choice_0 == "Overview":
     overview_app()
-elif choice_0 == "Optimizer Infos":
+elif choice_0 == "Optimization Algorithms":
     st.sidebar.write("")
     choice_opt = st.sidebar.radio("Optimization Algorithms:", options=app_d, index=0)
-    app_d[choice_opt]()
+    app_d[choice_opt](gfo_version)

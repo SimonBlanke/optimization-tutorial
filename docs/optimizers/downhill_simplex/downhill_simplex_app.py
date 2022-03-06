@@ -101,5 +101,5 @@ app_d = {
 }
 
 
-def downhill_simplex_app():
+def downhill_simplex_app(gfo_version):
     optimizer_app(app_d)
