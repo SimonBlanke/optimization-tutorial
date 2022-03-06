@@ -30,8 +30,8 @@ st.markdown(
 )
 
 
-from optimization_tutorial.overview_app import overview_app
-from optimization_tutorial.optimizers import (
+from overview_app import overview_app
+from optimizers import (
     hill_climbing_app,
     stochastic_hill_climbing_app,
     repulsing_hill_climbing_app,
