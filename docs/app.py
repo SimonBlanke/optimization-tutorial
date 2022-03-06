@@ -22,28 +22,51 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+try:
+    from overview_app import overview_app
+    from optimizers import (
+        hill_climbing_app,
+        stochastic_hill_climbing_app,
+        repulsing_hill_climbing_app,
+        simulated_annealing_app,
+        downhill_simplex_app,
+        random_search_app,
+        grid_search_app,
+        random_restart_hill_climbing_app,
+        powells_method_app,
+        pattern_search_app,
+        random_annealing_app,
+        parallel_tempering_app,
+        parallel_random_annealing_app,
+        particle_swarm_optimization_app,
+        evolution_strategy_app,
+        bayesian_optimization_app,
+        tree_structured_parzen_estimators_app,
+        forest_optimization_app,
+    )
+except:
+    from .overview_app import overview_app
+    from .optimizers import (
+        hill_climbing_app,
+        stochastic_hill_climbing_app,
+        repulsing_hill_climbing_app,
+        simulated_annealing_app,
+        downhill_simplex_app,
+        random_search_app,
+        grid_search_app,
+        random_restart_hill_climbing_app,
+        powells_method_app,
+        pattern_search_app,
+        random_annealing_app,
+        parallel_tempering_app,
+        parallel_random_annealing_app,
+        particle_swarm_optimization_app,
+        evolution_strategy_app,
+        bayesian_optimization_app,
+        tree_structured_parzen_estimators_app,
+        forest_optimization_app,
+    )
 
-from overview_app import overview_app
-from optimizers import (
-    hill_climbing_app,
-    stochastic_hill_climbing_app,
-    repulsing_hill_climbing_app,
-    simulated_annealing_app,
-    downhill_simplex_app,
-    random_search_app,
-    grid_search_app,
-    random_restart_hill_climbing_app,
-    powells_method_app,
-    pattern_search_app,
-    random_annealing_app,
-    parallel_tempering_app,
-    parallel_random_annealing_app,
-    particle_swarm_optimization_app,
-    evolution_strategy_app,
-    bayesian_optimization_app,
-    tree_structured_parzen_estimators_app,
-    forest_optimization_app,
-)
 
 app_d = {
     "Hill Climbing Optimizer": hill_climbing_app,
