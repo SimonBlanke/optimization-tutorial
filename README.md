@@ -2,6 +2,9 @@
   Optimization Tutorial
 </h1>
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/SimonBlanke/optimization-tutorial/main/optimization_tutorial/app.py)
+
+
 <br>
 
 This tutorial describes the optimization strategies and parameters from the [Hyperactive](https://github.com/SimonBlanke/Hyperactive) and [Gradient-Free-Optimizers](https://github.com/SimonBlanke/Gradient-Free-Optimizers) python-packages. All optimizer- and parameter-names correspond to **version 1.0** of Gradient-Free-Optimizers.
