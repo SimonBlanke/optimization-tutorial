@@ -2,6 +2,8 @@
   Optimization Tutorial
 </h1>
 
+
+In addition to this README there is a (**not yet finished**) [streamlit](https://github.com/streamlit/streamlit)-based website with visualizations and more detailed explanations:
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/SimonBlanke/optimization-tutorial/main/optimization_tutorial/app.py)
 
 
