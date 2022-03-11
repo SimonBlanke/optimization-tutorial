@@ -36,7 +36,7 @@ The following table shows the expected results for each optimization strategy fo
 
 <p align="center">
   <br>
-  <img src="./docs/_images/optimizer_table.png" width="950">
+  <img src="https://raw.githubusercontent.com/SimonBlanke/optimization-tutorial/main/optimization_tutorial/_images/optimizer_table.png" width="950">
   <br>
 </p>
 Those recomendations are just estimated based on personal experience and can heavily change dependend on optimization parameters, exact type of problem and number of iterations.
