@@ -27,20 +27,24 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- Does not adapt its behaviour to the optimization problem.
 - Very good as a first method of optimization or to start exploring the search space
 - For a short optimization run to get an acceptable solution
 """
 bad_ = """ 
-- ...
+- Does not adapt its behaviour to the optimization problem.
 """
 info_ = """ 
-- ...
+- This algorithm is often selected if we do not have much information about the 
+optimization problem. 
+- It is often used as a reference to compare its results to more sophisticated algorithms
+(like bayesian optimization).
 """
 
 
 implementation_ = """
-...
+The random search is a very simple algorithm that has no parameters to change its behaviour.
+In each iteration the random position is selected via random.choice 
+from a list of possible positions.
 """
 
 overview_app_args_d = {
