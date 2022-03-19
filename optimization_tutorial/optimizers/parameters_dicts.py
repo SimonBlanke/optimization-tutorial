@@ -8,7 +8,7 @@ n_neighbours_d_ = {
     "n_neighbours": ["int", "3", "1 ... 10"],
 }
 p_accept_d_ = {
-    "p_accept": ["float", "0.1", "0.01 ... 0.3"],
+    "p_accept": ["float", "0.1", "0.01 ... 10"],
 }
 repulsion_factor_d = {
     "repulsion_factor": ["float", "5", "2 ... 10"],

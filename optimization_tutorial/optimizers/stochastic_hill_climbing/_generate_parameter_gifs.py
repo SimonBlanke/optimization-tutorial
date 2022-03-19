@@ -162,22 +162,26 @@ def generate_gifs_p_accept_():
     p_accept_11_d = copy.copy(hill_climbing_ackley_function_template_d)
     p_accept_12_d = copy.copy(hill_climbing_ackley_function_template_d)
 
-    p_accept_0_d["opt_para"] = {"p_accept": 1}
+    para1 = 0.1
+    para2 = 1
+    para3 = 10
+
+    p_accept_0_d["opt_para"] = {"p_accept": para1}
     p_accept_0_d["name"] = "p_accept_0.gif"
 
-    p_accept_1_d["opt_para"] = {"p_accept": 4}
+    p_accept_1_d["opt_para"] = {"p_accept": para2}
     p_accept_1_d["name"] = "p_accept_1.gif"
 
-    p_accept_2_d["opt_para"] = {"p_accept": 8}
+    p_accept_2_d["opt_para"] = {"p_accept": para3}
     p_accept_2_d["name"] = "p_accept_2.gif"
 
-    p_accept_10_d["opt_para"] = {"p_accept": 1}
+    p_accept_10_d["opt_para"] = {"p_accept": para1}
     p_accept_10_d["name"] = "p_accept_3.gif"
 
-    p_accept_11_d["opt_para"] = {"p_accept": 4}
+    p_accept_11_d["opt_para"] = {"p_accept": para2}
     p_accept_11_d["name"] = "p_accept_4.gif"
 
-    p_accept_12_d["opt_para"] = {"p_accept": 8}
+    p_accept_12_d["opt_para"] = {"p_accept": para3}
     p_accept_12_d["name"] = "p_accept_5.gif"
 
     search_path_gif(**p_accept_0_d)

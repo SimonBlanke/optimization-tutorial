@@ -18,8 +18,11 @@ from parameters_dicts import epsilon_d_, distribution_d_, n_neighbours_d_, p_acc
 
 explanation_ = """
 Stochastic hill climbing extends the normal hill climbing by a simple method against getting 
-stuck in local optima. It has a parameter you can set, that determines the probability to 
-accept worse solutions as a next position.
+stuck in local optima. It has a parameter `p_accept` you can set, 
+that determines the probability to 
+accept worse solutions as a next position. 
+This should enable the stochastic hill climbing to find better solutions in
+a non-convex optimization problem over many iterations.
 """
 
 para_d = dict()
@@ -40,15 +43,18 @@ good_ = """
 - Useful to do finetuning on a good initial starting position
 """
 bad_ = """ 
-- Worse than hill climbing for convex optimization
+- Worse than regular hill climbing algorithm for convex optimization
 """
 info_ = """ 
-- ...
+- Too high values of `p_accept` impairs its ability to find optima
 """
 
 
 implementation_ = """
-...
+The stochastic hill climbing inherits the behaviour of the regular hill climbing algorithm and
+adds its additional functionality after the evaluation of the score is done. 
+The stochastic part of the algorithm gets activated of the new score is not better than
+the previous one.
 """
 
 overview_app_args_d = {

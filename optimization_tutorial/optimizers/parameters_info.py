@@ -14,7 +14,8 @@ The number of positions the algorithm explores from its current postion
 before jumping to the best one.
 """
 p_accept_intro_ = """ 
-...
+The probability factor used in the equation to calculate of a worse position is 
+accepted as the new position.
 """
 repulsion_factor_intro_ = """
 If the algorithm does not find a better position the 
