@@ -44,15 +44,22 @@ good_ = """
 - The performance of the algorithm depends heavily on the positions in the initial simplex
 """
 bad_ = """ 
-- ...
+- Downhill simplex algorithm can get stuck in case of bad initial positions.
+- The algorithm will not continue to explore the search space after it converged 
+to an optimal position.
 """
 info_ = """ 
-- ...
+- Make sure to have multiple random initial positions, when starting an 
+optimization run.
 """
 
 
 implementation_ = """
-...
+The **downhill simplex** algorithm works in a completly different way from the other local
+hill climbing based optimizers. It is much more complex, because there are 
+reflecting-, expanding-, contracting- and shrinking-steps for the iteration 
+(before new score is known) and the evaluation (after new score is known). This leads
+to a bigger and more complex source code than the hill climbing based algorithms.
 """
 
 overview_app_args_d = {
