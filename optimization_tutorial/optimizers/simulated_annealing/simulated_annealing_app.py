@@ -48,15 +48,21 @@ good_ = """
 - Useful to do finetuning on a good initial starting position
 """
 bad_ = """ 
-- ...
+- Worse than regular hill climbing algorithm for convex optimization
 """
 info_ = """ 
-- ...
+- Adapting `annealing_rate` and `start_temp` to your optimization problem can be
+very difficult. `start_temp` should be higher and `annealing_rate` should be lower
+if the number of iterations for your optimization run is high.
 """
 
 
 implementation_ = """
-...
+The **simulated annealing** algorithm inherits the methods from the regular hill climbing.
+Similar to stochastic hill climbing it may accept a worse position with the goal of
+escaping a local optimum. The `start_temp` is a factor for the probability of accepting 
+a worse position. This probability decreases over time, because of the ànnealing_rate`
+decreasing the `start_temp` over time.
 """
 
 overview_app_args_d = {
