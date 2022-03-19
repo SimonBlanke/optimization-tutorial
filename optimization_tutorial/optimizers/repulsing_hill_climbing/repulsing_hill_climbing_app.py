@@ -22,7 +22,7 @@ from parameters_dicts import (
 )
 
 explanation_ = """
-The repulsing hill climbing optimization algorithm improves the normal hill 
+The **repulsing hill climbing** optimization algorithm improves the normal hill 
 climbing by adding a way to escape local optimia. If no better position is 
 found within the next `n_neighbours` positions the algorithm will increase 
 `epsilon` by the `repulsion_factor` for the next iteration.
@@ -45,15 +45,19 @@ good_ = """
 - Good for convex- and non-convex optimization problems
 """
 bad_ = """ 
-- ...
+- Worse than regular hill climbing algorithm for convex optimization
 """
 info_ = """ 
-- ...
+- Very high values of `repulsion_factor` and high values of `n_neighbours` at the same time
+leads to a combination of a hill climbing and random search algorithm.
 """
 
 
 implementation_ = """
-...
+Similar to other hill climbing based algorithms the **repulsing hill climbing**
+inherits the methods from the regular hill climbing and adds a functionality to
+escape local optima. The repulsing hill climbing temporally increases `epsilon`
+to jump out of the current region.
 """
 
 overview_app_args_d = {
