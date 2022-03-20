@@ -30,15 +30,13 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- Does not adapt its behaviour to the optimization problem.
 - Best method for exploring the search space completly
-- Increasing the `step_size` is advised for better exploration.
 """
 bad_ = """ 
-- ...
+- Does not adapt its behaviour to the optimization problem.
 """
 info_ = """ 
-- ...
+- Increasing the `step_size` is advised for better exploration.
 """
 
 
