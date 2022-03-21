@@ -40,18 +40,20 @@ para_df = pd.DataFrame.from_dict(
 
 good_ = """ 
 - Good for convex and nonconvex optimization problems
-- Similar to random search for low values of `n_iter_restart`
+- 
 """
 bad_ = """ 
-- ...
+- Worse than regular hill climbing algorithm for convex optimization
+- Does not intelligently decide when to restart
 """
 info_ = """ 
-- ...
+- Similar to random search for low values of `n_iter_restart`
 """
 
 
 implementation_ = """
-...
+The random restart hill climbing inherits its behaviour from the regular hill climbing and 
+expands it by jumping to a random position. 
 """
 
 overview_app_args_d = {
