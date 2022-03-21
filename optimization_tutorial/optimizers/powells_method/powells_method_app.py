@@ -30,19 +30,22 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- Very well adapted to convex optimization problems
-- Expect good results for nonconvex problems
+- Expect good results for convex and nonconvex optimization problems.
 """
 bad_ = """ 
-- ...
+- After converging to a solution the algorithm will not continue to explore
+the search space.
 """
 info_ = """ 
-- ...
+- The first few iterations in each dimension are random initialization
+steps.
 """
 
 
 implementation_ = """
-...
+The powell's method implemented in Gradient-Free-Optimizers does only more one dimension at a time.
+This differs from the original idea of creating (and searching through) 
+one search-vector at a time, that spans through multiple dimensions.
 """
 
 overview_app_args_d = {
