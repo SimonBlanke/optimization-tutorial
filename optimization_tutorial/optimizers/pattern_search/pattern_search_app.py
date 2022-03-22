@@ -20,8 +20,11 @@ from parameters_dicts import (
 )
 
 explanation_ = """
-This powell's method implementation works by optimizing each search space dimension at a 
-time with a hill climbing algorithm.
+The pattern search works by initializing a cross-shaped collection of positions in the 
+search space. When all positions in the cross are evaluated the center of the cross moves
+to the best position. This leads to new positions inside the cross that have not been
+evaluated. If non of the positions have a better score than the center position the cross
+shrinks by the `reduction`-factor creating new positions inside the cross.
 """
 
 para_d = dict()
@@ -36,19 +39,19 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- Very well adapted to convex optimization problems
-- Expect good results for nonconvex problems
+- Expect good results for convex and nonconvex optimization problems.
 """
 bad_ = """ 
-- ...
+- After converging to a solution the algorithm will not continue to explore
+the search space.
 """
 info_ = """ 
-- ...
+- The `n_positions` should be increased for high number of search space dimensions.
 """
 
 
 implementation_ = """
-...
+
 """
 
 overview_app_args_d = {
