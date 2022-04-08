@@ -20,7 +20,9 @@ from parameters_dicts import (
 )
 
 explanation_ = """
-...
+Bayesian optimization chooses new positions by calculating the expected 
+improvement of every position in the search space based on a gaussian process 
+that trains on already evaluated positions.
 """
 
 para_d = dict()
@@ -35,18 +37,33 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- ...
+- Exceptional performance
 """
-bad_ = """ 
-- ...
+bad_ = """
+- High computational load compared to non-smb-optimizers.
+- Should only be used for 
+computationally expensive objective-functions.
+- A large search space forces random sampling of the position space, which 
+decreases optimizer performance.
 """
-info_ = """ 
-- ...
+info_ = """
+- Changing `gpr` heavily impacts the optimization algorithm.
+- Passing a modified random-forest to `gpr` transforms the bayesian-optimizer to a 
+forest-optimizer.
+- High values of `xi` improves the exploration of the search space.
 """
 
 
 implementation_ = """
-...
+The bayesian optimizer collects the information about the position and score in each 
+iteration. The gaussian process regressor fits to the position (features) and score (target),
+and predicts the scores of all unknown positions. This is why the bayesian optimization needs
+at least one initial position. The gaussian process returns the standard deviation 
+in addition to the prediction (or mean), both of which are required to 
+compute the acquisition function.
+The position of the best predicted score
+is evaluated next. The selected position and its true score is then collected, 
+restarting the cycle.
 """
 
 overview_app_args_d = {
