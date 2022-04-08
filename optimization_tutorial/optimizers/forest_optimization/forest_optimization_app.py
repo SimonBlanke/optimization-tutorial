@@ -20,10 +20,9 @@ from parameters_dicts import (
 )
 
 explanation_ = """
-Tree of Parzen Estimators also chooses new positions by calculating the expected improvement. 
-It does so by calculating the ratio of probability being among the best positions and 
-the worst positions. Those probabilities are determined with a kernel density estimator,
-that is trained on alrady evaluated positions.
+The forest-optimizer calculates the expected improvement of the position space with a 
+tree-based model. This optimization technique is very similar to bayesian-optimization
+in every part, except its model.
 """
 
 para_d = dict()
@@ -38,20 +37,25 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- If model evaluations take a long time
-- If you do not want to do many iterations
-- If your search space is not to big
+- Very good performance
 """
-bad_ = """ 
-- ...
+bad_ = """
+- High computational load compared to non-smb-optimizers.
+- Should only be used for 
+computationally expensive objective-functions.
+- A large search space forces random sampling of the position space, which 
+decreases optimizer performance.
 """
-info_ = """ 
-- ...
+info_ = """
+- High values of `xi` improves the exploration of the search space.
 """
 
 
 implementation_ = """
-...
+The forest-optimizer shares most of its code base with the bayesian-optimizer. Only its model, to 
+calculate the expected score and its standard deviation is different. Tree based models do not 
+calculate the standard deviation by them self. A modification is necessary to determine the
+standard deviation from the impurity of the trees in the ensemble.
 """
 
 overview_app_args_d = {
