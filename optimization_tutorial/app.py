@@ -64,7 +64,7 @@ app_d = {
     "Random Restart Hill Climbing Optimizer": random_restart_hill_climbing_app,
     "Powell's Method": powells_method_app,
     "Pattern Search": pattern_search_app,
-    "Random Annealing Optimizer": random_annealing_app,
+    # "Random Annealing Optimizer": random_annealing_app,
     "Parallel Tempering Optimizer": parallel_tempering_app,
     # "Parallel Annealing Optimizer": parallel_random_annealing_app,
     "Particle Swarm Optimizer": particle_swarm_optimization_app,
