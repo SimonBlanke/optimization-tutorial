@@ -51,7 +51,9 @@ info_ = """
 
 
 implementation_ = """
-
+Similar to a population based optimization algorithm the pattern search has a list of information 
+about the positions and their scores to form the pattern. 
+As the pattern moves through the search space this information gets updated.
 """
 
 overview_app_args_d = {
