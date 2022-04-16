@@ -35,20 +35,25 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- If model evaluations take a long time
-- If you do not want to do many iterations
-- If your search space is not to big
+- Very good performance
 """
-bad_ = """ 
-- ...
+bad_ = """
+- High computational load compared to non-smb-optimizers.
+- Should only be used for 
+computationally expensive objective-functions.
+- A large search space forces random sampling of the position space, which 
+decreases optimizer performance.
 """
-info_ = """ 
-- ...
+info_ = """
+- High values of `xi` improves the exploration of the search space.
 """
 
 
 implementation_ = """
-...
+Similar to other sequence-model-based optimization algorithms the positions and scores 
+of previous evaluations are saved as features and targets to train a machine learning algorithm.
+For the tree structured parzen estimators we use two kernel density estimators that get
+the training data from the best and worst positions to calculate the expected improvement.
 """
 
 overview_app_args_d = {
