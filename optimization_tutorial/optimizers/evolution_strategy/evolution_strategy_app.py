@@ -37,8 +37,7 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- If the search space is very complex and large
-- If you have enough time for many model evaluations
+- Expect good results for convex and nonconvex optimization problems.
 """
 bad_ = """ 
 - ...
@@ -49,7 +48,9 @@ info_ = """
 
 
 implementation_ = """
-...
+The mutation part of the evolution strategy optimizer is a regular hill climbing algorithm.
+The crossover works by combining the best positions to get new ones. The worst positions 
+are removed to preserve the number of individuals in the population.
 """
 
 overview_app_args_d = {
