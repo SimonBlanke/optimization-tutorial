@@ -19,7 +19,8 @@ from parameters_dicts import (
 
 explanation_ = """
 Parallel Tempering initializes multiple simulated annealing searches with different 
-temperatures and chooses to swap those temperatures with the following probability.
+temperatures and chooses to swap those temperatures with a probability based on 
+its temperature and difference of current scores.
 """
 
 para_d = dict()
@@ -34,18 +35,22 @@ para_df = pd.DataFrame.from_dict(
 
 good_ = """ 
 - Not as dependend of a good initial position as simulated annealing
-- If you have enough time for many model evaluations
+- Similar computational load to regular simulated annealing
 """
 bad_ = """ 
-- ...
+- Population based optimizers generally need a higher minimum number of iterations
+to find a good solution (compared to non-population-based algorithms).
 """
 info_ = """ 
-- ...
+-  The parameter `n_iter_swap` should be increased if `population` is increased.
 """
 
 
 implementation_ = """
-...
+The population of the parallel tempering optimizer consists of multiple initializations
+of the simulated annealing optimizer class. Each of those receives a random starting temperature.
+The algorithm calculates the probability of swapping temperatures
+for every combination of annealer instances. 
 """
 
 overview_app_args_d = {
