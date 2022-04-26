@@ -127,15 +127,18 @@ def overview_app():
         height=10,
     )
 
+    st.write("")
     st.header("About this tutorial")
-    col1, col2, col3 = st.columns((2, 1, 1))
+    # col1, col2, col3 = st.columns((2, 1, 1))
+    col1, col2 = st.columns((1, 1.5))
+
     col1.write(about_)
 
     # col2.image(os.path.join(here_, "_images", "optimizer_table.png"))
     # col3.image(os.path.join(here_, "_images", "optimizer_table.png"))
 
-    st.header("Introduction")
-    col1, col2 = st.columns((1, 1.5))
+    # st.header("Introduction")
+    # col1, col2 = st.columns((1, 1.5))
 
     algo_table = pd.DataFrame.from_dict(
         algo_d,
@@ -150,7 +153,7 @@ def overview_app():
 
     algo_table = algo_table.style.applymap(algo_color)
 
-    col1.write(introduction_)
+    # col1.write(introduction_)
     col2.table(algo_table)
 
     # col2.image(os.path.join(here_, "_images", "optimizer_table.png"))
