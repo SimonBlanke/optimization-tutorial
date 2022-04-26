@@ -22,8 +22,9 @@ from parameters_dicts import (
 )
 
 explanation_ = """
-Particle swarm optimization works by initializing a number of positions at the same time 
-and moving all of those closer to the best one after each iteration.
+Particle swarm optimization works by initializing a number of positions in the search space,
+which move according to their own ineratia, the attraction to their own known best positions
+and the global best position.
 """
 
 para_d = dict()
@@ -39,19 +40,27 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- If the search space is complex and large
-- If you have enough time for many model evaluations
+- Expect very good results for convex optimization problems.
+- Expect good results for nonconvex optimization problems.
 """
 bad_ = """ 
-- ...
+- The particle swarm optimizer is not adapted to categorical search space dimensions.
+- Population based optimizers generally need a higher minimum number of iterations
+to find a good solution (compared to non-population-based algorithms).
+- The algorithm will not continue to explore the search space after the particles converged 
+to an optimal position.
 """
 info_ = """ 
-- ...
+- The `inertia` lets the particle maintain its own velocity. The `cognitive_weight` and 
+`social_weight` alter the direction and velocity of the particle.
 """
 
 
 implementation_ = """
-...
+The particle swarm optimizer initializes multiple particle classes, which inherit from
+the hill-climbing class. In the current version all movement-calculations are contained in
+the particle class. Particles have a velocity, which they maintain even without attraction
+to other particles via `cognitive_weight` or `social_weight`.
 """
 
 overview_app_args_d = {
