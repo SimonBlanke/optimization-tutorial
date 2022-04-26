@@ -40,10 +40,14 @@ good_ = """
 - Expect good results for convex and nonconvex optimization problems.
 """
 bad_ = """ 
-- ...
+- Algorithm performance can worsen in case of bad initial positions.
+- Population based optimizers generally need a higher minimum number of iterations
+to find a good solution (compared to non-population-based algorithms).
 """
 info_ = """ 
-- ...
+- If `mutation_rate`/`crossover_rate` is high the algorithm behaves like a population
+of hill climbers
+- If `crossover_rate`/`mutation_rate` is high the exploration of the search space will worsen.
 """
 
 
