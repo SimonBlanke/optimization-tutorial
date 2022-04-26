@@ -53,7 +53,7 @@ population_parallel_temp_d = {
     "population": ["int", "5", "3 ... 15"],
 }
 n_iter_swap_parallel_temp_d = {
-    "n_iter_swap": ["int", "10", "5 ... 15"],
+    "n_iter_swap": ["int", "10", "5 ... 50"],
 }
 population_pso_d = {
     "population": ["int", "10", "4 ... 15"],
