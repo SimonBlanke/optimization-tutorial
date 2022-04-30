@@ -23,7 +23,8 @@ from parameters_dicts import (
 
 explanation_ = """
 Random restart hill climbing works by starting a hill climbing search and jumping to a random 
-new position after `n_iter_restart` iterations.
+new position after `n_iter_restart` iterations. 
+Those restarts should prevent the algorithm getting stuck in local optima.
 """
 
 para_d = dict()
@@ -39,8 +40,7 @@ para_df = pd.DataFrame.from_dict(
 
 
 good_ = """ 
-- Good for convex and nonconvex optimization problems
-- 
+- Expect good results for convex and nonconvex optimization problems.
 """
 bad_ = """ 
 - Worse than regular hill climbing algorithm for convex optimization
@@ -53,7 +53,7 @@ info_ = """
 
 implementation_ = """
 The random restart hill climbing inherits its behaviour from the regular hill climbing and 
-expands it by jumping to a random position. 
+expands it by jumping to a random position during the iteration step. 
 """
 
 overview_app_args_d = {
