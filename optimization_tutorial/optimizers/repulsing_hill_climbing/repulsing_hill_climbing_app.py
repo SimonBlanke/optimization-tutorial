@@ -25,7 +25,7 @@ explanation_ = """
 The **repulsing hill climbing** optimization algorithm improves the normal hill 
 climbing by adding a way to escape local optimia. If no better position is 
 found within the next `n_neighbours` positions the algorithm will increase 
-`epsilon` by the `repulsion_factor` for the next iteration.
+`epsilon` by multiplying the `repulsion_factor` for the next iteration.
 """
 
 para_d = dict()
