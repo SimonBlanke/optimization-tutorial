@@ -1,0 +1,39 @@
+h1 {
+    font-size: 60px !important;
+    margin: 0rem 0rem 2rem 0rem !important;
+    /* border-bottom: solid 1px rgb(0, 0, 0, 0.15); */
+}
+
+h2 {
+    padding: 0px 0px 3px 0px !important;
+    margin: 3rem 0rem 1rem 0rem !important;
+    border-bottom: solid 3px rgb(70, 150, 236);
+}
+
+h3 {
+    padding: 0px 0px 0px 3px !important;
+    margin: 2rem 0rem 0rem 0rem !important;
+    border-left: solid 3px rgb(70, 150, 236);
+}
+
+
+
+@media only screen and (min-width: 76.25em) {
+    .md-main__inner {
+        max-width: 80%;
+    }
+
+    .md-sidebar--primary {
+        left: 1;
+
+    }
+
+    .md-sidebar--secondary {
+        right: 5;
+        margin-left: 5;
+        -webkit-transform: none;
+        transform: none;
+    }
+
+
+}
