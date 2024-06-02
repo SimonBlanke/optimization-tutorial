@@ -1,2 +1,51 @@
 site_name: Optimization Tutorial
 repo_url: https://github.com/SimonBlanke/optimization-tutorial
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  - toc:
+      title: On this page
+
+plugins:
+  - glightbox
+  - macros
+
+theme:
+  name: material
+
+  icon:
+    repo: fontawesome/brands/square-github
+
+  features:
+    - navigation.indexes
+
+extra_css:
+  - css/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/blanke_simon
+    - icon: fontawesome/brands/github
+      link: https://github.com/SimonBlanke/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/simon-blanke/
+
+nav:
+  - Home:
+      - Optimization Tutorial: index.md
