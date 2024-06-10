@@ -26,6 +26,23 @@ theme:
   icon:
     repo: fontawesome/brands/square-github
 
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue grey
+      accent: deep purple
+      toggle:
+        icon: material/brightness-5
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: deep purple
+      toggle:
+        icon: material/brightness-3
+        name: Switch to light mode
+
   features:
     - navigation.indexes
 
@@ -49,3 +66,6 @@ extra:
 nav:
   - Home:
       - Optimization Tutorial: index.md
+
+  - Optimization Algorithms:
+      - Optimization Template: optimizers/hill_climbing/page.md
